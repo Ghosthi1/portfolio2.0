@@ -1,6 +1,7 @@
 ---
-const { platform, website } = Astro.props;
+const { platform, website, imgs } = Astro.props;
 ---
+<img src={imgs} alt={`${platform} logo`} width="24" height="24" />
 <a href={website} class="social">{platform}</a>
 
 <style>
