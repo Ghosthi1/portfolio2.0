@@ -1,9 +1,11 @@
 ---
 import BaseLayout from '../layouts/baseLayout.astro';
-import Hero from '../layouts/Hero.astro';
+import Hero from '../components/Hero/Hero.astro';
+import Description from '../components/Hero/Description.astro';
 const pageTitle = "Home Page";
 ---
 <BaseLayout pageTitle={pageTitle}>
 	<Hero />
+	<Description />
 </BaseLayout>
 
