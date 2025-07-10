@@ -1,45 +1,52 @@
 ---
 import Project from './project.astro';
 
-// All projects
+// Import all images
+import flappyImg from '../../assets/Projects/flappybird/flappy.jpg';
+import breakoutImg from '../../assets/Projects/BreakOut/BrickBreaker.png';
+import snakeImg from '../../assets/Projects/Snake/icon.png';
+import ticktacktoeImg from '../../assets/Projects/TickTackToe/TickTackToe.jpg';
+import tabletopImg from '../../assets/Projects/tabletoptracker/TableTopTracker.jpg';
+import calculatorImg from '../../assets/Projects/czlculator/icon (1).png';
+
+// All projects with imported images
 const projects = [
     {
         Project: "flapyBird",
         link: "src/pages/FlappyBird.astro",
-        imgs: "src/assets/Projects/flappybird/flappy.jpg",
+        imgs: flappyImg,
         tag: "Game"
     },
     {
         Project: "breakout",
         link: "src/pages/Breakout.astro",
-        imgs: "src/assets/Projects/BreakOut/BrickBreaker.png",
+        imgs: breakoutImg,
         tag: "Game"
     },
     {
         Project: "snake",
         link: "src/pages/Snake.astro",
-        imgs: "src/assets/Projects/Snake/icon.png",
+        imgs: snakeImg,
         tag: "Game"
     },
     {
         Project: "ticktacktoe",
         link: "src/pages/ticktacktoe.astro",
-        imgs: "src/assets/Projects/TickTackToe/TickTackToe.jpg",
+        imgs: ticktacktoeImg,
         tag: "Game"
     },
     {
         Project: "tabletoptracker",
         link: "src/pages/tabletoptracker.astro",
-        imgs: "src/assets/Projects/tabletoptracker/TableTopTracker.jpg",
+        imgs: tabletopImg,
         tag: "app"
     },
     {
         Project: "calculator",
         link: "src/pages/calculator.astro",
-        imgs: "src/assets/Projects/czlculator/icon (1).png",
+        imgs: calculatorImg,
         tag: "app"
     }
-
 ];
 ---
 
