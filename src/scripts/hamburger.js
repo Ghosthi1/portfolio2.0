@@ -5,10 +5,11 @@ function closeMenu() {
   navLinks.classList.remove('expanded');
   navLinks.classList.add('sliding-out');
   
-  // Hide menu after animation completes
+  // Wait for animation to complete before hiding the menu
   setTimeout(() => {
+    navLinks.style.display = 'none';
     navLinks.classList.remove('sliding-out');
-  }, 300); // Match the animation duration (0.3s = 300ms)
+  }, 290); // Match the animation duration (0.29s = 290ms)
 }
 
 // Toggle menu when hamburger is clicked
@@ -16,6 +17,7 @@ hamburger.addEventListener('click', () => {
   if (navLinks.classList.contains('expanded')) {
     closeMenu();
   } else {
+    navLinks.style.display = 'unset';
     navLinks.classList.remove('sliding-out');
     navLinks.classList.add('expanded');
   }
