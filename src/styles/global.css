@@ -123,10 +123,12 @@ h1 {
     display: flex;
     flex-direction: column;
     align-items: center;
+    justify-content: center;
 }
     .project-icon{
         width: 100%;
         height: 100%;
+        border-radius: 10px;
         transform: filter 0.3s ease, transform 0.3s ease;
         filter: brightness(1) saturate(1);
     }
