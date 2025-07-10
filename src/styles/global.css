@@ -28,6 +28,49 @@ h1 {
     }
 }
 
+/* #region header */
+.hamburger{
+    padding-right: 20px;
+    cursor: pointer; 
+    display: block; 
+}
+.hamburger .bar {
+    display: block;
+    width: 40px;
+    height: 5px;
+    margin-bottom: 10px;
+    background-color: #000000;    
+}
+
+.nav-links {
+    width: 20%;
+    height: 100%;
+    position: absolute;
+    background-color: #b3b0af;
+    display: none;
+    z-index: 1001;
+}
+
+.nav-links a {
+  display: block;
+  text-align: center;
+  padding: 10px 0;
+  text-decoration: none;
+  font-size: 1.2rem;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
+.nav-links a:hover, a:focus {
+  background-color: #857e7d;
+}
+
+.expanded {
+  display: unset;
+}
+
+/* #endregion header */
+
 /* #region hero*/
 .hero {
     border-radius: 10px;
