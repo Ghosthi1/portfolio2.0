@@ -1,9 +1,52 @@
 ---
-import GridLayout from '../../layouts/GridLayout.astro';
 import Project from './project.astro';
+
+// All projects
+const projects = [
+    {
+        Project: "flapyBird",
+        link: "src/pages/FlappyBird.astro",
+        imgs: "src/assets/email-9-svgrepo-com.svg",
+        tag: "Game"
+    },
+    {
+        Project: "breakout",
+        link: "src/pages/FlappyBird.astro",
+        imgs: "src/assets/email-9-svgrepo-com.svg",
+        tag: "Game"
+    },
+    {
+        Project: "calculator",
+        link: "src/pages/FlappyBird.astro",
+        imgs: "src/assets/email-9-svgrepo-com.svg",
+        tag: "app"
+    },
+    {
+        Project: "calculator",
+        link: "src/pages/FlappyBird.astro",
+        imgs: "src/assets/email-9-svgrepo-com.svg",
+        tag: "app"
+    },
+    {
+        Project: "calculator",
+        link: "src/pages/FlappyBird.astro",
+        imgs: "src/assets/email-9-svgrepo-com.svg",
+        tag: "app"
+    },
+    {
+        Project: "calculator",
+        link: "src/pages/FlappyBird.astro",
+        imgs: "src/assets/email-9-svgrepo-com.svg",
+        tag: "app"
+    }
+
+];
 ---
 
-<GridLayout>
-  <Project project="Email" link="mailto:c-forsyth02@sky.com" imgs="src/assets/email-9-svgrepo-com.svg"/>
-<GridLayout>
-
+<section class="projects-container">
+    <div class="project-grid">
+        {projects.map((project) => (
+            <Project project={project.Project} link={project.link} imgs={project.imgs} />
+        ))}
+    </div>
+</section>
