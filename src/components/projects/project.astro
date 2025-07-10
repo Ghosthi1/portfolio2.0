@@ -3,7 +3,7 @@ const { project, link, imgs, tag } = Astro.props;
 ---
 <div class="project-card">
     <a href={link} >
-        <img src={imgs} alt={`${project} logo`} class="project-icon" />
+        <img src={imgs.src || imgs} alt={`${project} logo`} class="project-icon" />
     </a>
     <span class="project-tag">{tag}</span>
 </div>
