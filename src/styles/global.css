@@ -33,6 +33,7 @@ h1 {
     padding-right: 20px;
     cursor: pointer; 
     display: block; 
+    position: fixed;
 }
 .hamburger .bar {
     display: block;
@@ -45,7 +46,7 @@ h1 {
 .nav-links {
     width: 20%;
     height: 100%;
-    position: absolute;
+    position: fixed;
     background-color: #b3b0af;
     display: none;
     z-index: 1001;
