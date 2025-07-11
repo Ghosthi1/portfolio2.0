@@ -30,7 +30,8 @@ body {
     margin: 0;
     padding: 0.5rem;
     line-height: 1.5;
-    width: 200%;
+    width: 100%;
+    box-sizing: border-box;
 }
 
 h1 {
