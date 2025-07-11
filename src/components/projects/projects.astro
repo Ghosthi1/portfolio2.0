@@ -61,7 +61,9 @@ const projects = [
 <section class="projects-container" id="projects">
     <div class="project-grid">
         {projects.map((project) => (
-            <Project project={project.Project} link={project.link} imgs={project.imgs} />
+            <div class="project-item" data-project-name={project.Project}>
+              <Project project={project.Project} link={project.link} imgs={project.imgs} />
+            </div>
         ))}
     </div>
 </section>
