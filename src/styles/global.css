@@ -208,6 +208,23 @@ h1 {
     .description-content {
         padding: 1rem;
     }
+    .skills{
+
+    }
+        .grid{
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            grid-template-rows: (3, 1fr);
+            gap: 16px;
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+        .grid li{
+            padding: 16px;
+            border: 1px solid #ccc;
+            text-align: center;
+        }
 
 /*#endregion description */
 
