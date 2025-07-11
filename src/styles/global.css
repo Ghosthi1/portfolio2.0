@@ -20,10 +20,16 @@
     }
 }
 
+*, *::before, *::after {
+    box-sizing: border-box;
+}
+
 html {
     background-color: #ffffff;
     font-family: sans-serif;
     scroll-behavior: smooth;
+    width: 100%;
+    overflow-x: hidden;
 }
 
 body {
@@ -31,7 +37,9 @@ body {
     padding: 0.5rem;
     line-height: 1.5;
     width: 100%;
+    max-width: 100%;
     box-sizing: border-box;
+    overflow-x: hidden;
 }
 
 h1 {
