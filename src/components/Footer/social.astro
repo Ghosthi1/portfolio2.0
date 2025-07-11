@@ -1,4 +1,4 @@
 ---
 const { platform, website, imgs } = Astro.props;
 ---
-<a href={website} ><img src={imgs.src} alt={`${platform} logo`} class="social-icon" /></a>
+<a href={website} ><img src={imgs.src} loading="lazy" alt={`${platform} logo`} class="social-icon" /></a>
