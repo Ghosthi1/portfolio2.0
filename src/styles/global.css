@@ -99,6 +99,9 @@ h1 {
   font-weight: bold;
   text-transform: uppercase;
 }
+.nav-links a:visited {
+   color: inherit;
+}
 
 .nav-footer{
     position: absolute;
