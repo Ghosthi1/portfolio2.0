@@ -23,6 +23,14 @@ hamburger.addEventListener('click', () => {
   }
 });
 
+// Close menu when clicking navigation links
+const navLinkElements = document.querySelectorAll('.nav-links a');
+navLinkElements.forEach(link => {
+  link.addEventListener('click', () => {
+    closeMenu();
+  });
+});
+
 // Close menu when clicking outside
 document.addEventListener('click', (event) => {
   const isMenuOpen = navLinks.classList.contains('expanded');
