@@ -114,12 +114,12 @@ h1 {
     max-width: 100%;
     margin: 0;
     justify-content: center;
-    gap: 2rem;
+    gap: 1rem;
 }
 
 .nav-footer .social-icon{
-    width: 3rem;
-    height: 3rem;
+    width: 2rem;
+    height: 2rem;
     transition: transform 0.3s ease;
 }
 
@@ -143,29 +143,49 @@ h1 {
 .expanded {
   display: unset;
 }
+@media(min-width: 425px) {
+    .nav-footer .social-icon{
+        width: 2.5rem;
+        height: 2.5rem;
+    }
+    .nav-footer footer{
+        gap: 1rem;
+    }
+}
 
 @media (min-width: 426px)  {
     .nav-links{
         width: 30%;
     }
-    
-    .nav-footer .social-icon{
-        width: 4rem;
-        height: 4rem;
-    }
+
 }
 
 @media (min-width: 768px) {
     .nav-footer .social-icon{
-        width: 5rem;
-        height: 5rem;
+        width: 2.5rem;
+        height: 2.5rem;
+    }
+    .nav-footer footer{
+        gap: 0.5rem;
     }
 }
 
 @media (min-width: 1024px) {
     .nav-footer .social-icon{
-        width: 6rem;
-        height: 6rem;
+        width: 3rem;
+        height: 3rem;
+    }
+    .nav-footer footer{
+        gap: 1rem;
+    }
+}
+@media (min-width: 1440px) {
+    .nav-footer .social-icon{
+        width: 4rem;
+        height: 4rem;
+    }
+    .nav-footer footer{
+        gap: 2rem;
     }
 }
 
