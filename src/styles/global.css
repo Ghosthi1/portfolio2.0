@@ -130,6 +130,12 @@ h1 {
   display: unset;
 }
 
+@media (min-width: 426px)  {
+    .nav-links{
+        width: 30%;
+    }
+}
+
 
 /* #endregion header */
 
