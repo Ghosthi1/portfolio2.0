@@ -1,8 +1,9 @@
 ---
 import Footer from '../components/Footer/footer.astro';
 import Header from '../components/Header/header.astro';
+import Background from '../components/Background/Background.astro';
 import '../styles/global.css';
-const { pageTitle } = Astro.props;
+const { pageTitle , backgroundvarient} = Astro.props;
 ---
 <html lang="en">
   <head>
@@ -13,8 +14,7 @@ const { pageTitle } = Astro.props;
     <title>{pageTitle}</title>
   </head>
   <body>
-    <div class="circle"></div>
-    <div class="circle2"></div>
+    <Background background={backgroundvarient}/>
     <Header />
 
     <slot />

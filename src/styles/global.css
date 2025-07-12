@@ -44,7 +44,7 @@ body {
 }
 
 /*#region background*/
-.circle {
+.circle-default {
     display: block;
     bottom: -3%;
     left: -7%;
@@ -58,7 +58,7 @@ body {
     border-radius: 50%;
     position: fixed;
 }
-.circle2 {
+.circle2-default {
     display: block;
     top: -5%;
     right: -10%;
@@ -71,6 +71,23 @@ body {
         inset 0 3px 12px rgba(255, 255, 255, 0.08);
     border-radius: 50%;
     position: fixed;
+}
+/* Game-themed background */
+.circle-game {
+    background: linear-gradient(135deg, #dc3545, #fd7e14, #ffc107);
+}
+
+.circle2-game {
+    background: linear-gradient(225deg, #e83e8c, #6f42c1, #6610f2);
+}
+
+/* Project-specific background */
+.circle-project {
+    background: linear-gradient(135deg, #007bff, #0dcaf0, #20c997);
+}
+
+.circle2-project {
+    background: linear-gradient(225deg, #6610f2, #0d6efd, #198754);
 }
 
 @media (min-width: 768px) {
