@@ -1,5 +1,8 @@
 ---
-import Footer from '../Footer/footer.astro';
+import linkedin from "../../assets/in-logo (1)/in-logo/LI-In-Bug.png";
+import Github from "../../assets/github-mark/github-mark.svg";
+import itchIcon from "../../assets/app-icon.svg";
+import emailIcon from "../../assets/email-9-svgrepo-com.svg";
 ---
 <div class="hamburger" >
   <div class="bar"></div>
@@ -13,8 +16,19 @@ import Footer from '../Footer/footer.astro';
     <a href="#about">About Me</a>
     <a href="#projects">Projects</a>
 
-    <div class ="nav-footer">
-      <Footer />
+    <div class="nav-footer">
+        <a href="https://www.linkedin.com/in/callum-forsyth-26a5011b2" class="social-icon">
+            <img src={linkedin.src} loading="lazy" alt="LinkedIn logo" />
+        </a>
+        <a href="https://github.com/Ghosthi1" class="social-icon">
+            <img src={Github.src} loading="lazy" alt="Github logo" />
+        </a>
+        <a href="https://ghosthi.itch.io" class="social-icon">
+            <img src={itchIcon.src} loading="lazy" alt="itch.io logo" />
+        </a>
+        <a href="mailto:c-forsyth02@sky.com" class="social-icon">
+            <img src={emailIcon.src} loading="lazy" alt="Email logo" />
+        </a>
     </div>
 </nav>
 
