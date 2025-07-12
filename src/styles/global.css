@@ -1062,29 +1062,175 @@ h1 {
 
 /* #region footer*/
 footer {
-    display: flex;
-    gap: 2rem;
+    border-radius: 20px;
+    background: linear-gradient(135deg, 
+        rgba(40, 167, 69, 0.12) 0%, 
+        rgba(32, 201, 151, 0.10) 50%, 
+        rgba(111, 66, 193, 0.08) 100%);
+    backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    box-shadow: 
+        0 20px 40px rgba(0, 0, 0, 0.25),
+        0 8px 16px rgba(40, 167, 69, 0.12),
+        inset 0 1px 0 rgba(255, 255, 255, 0.2);
     max-width: 90%;
-    align-content: center;
-    margin: 2rem auto;
+    margin: 3rem auto;
+    padding: 2rem;
+    position: relative;
+    overflow: hidden;
+    transition: all 0.4s ease;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 2rem;
 }
-    .social-icon{
-        width : 2rem;
-        height: 2rem;
-        transform: filter 0.3s ease, transform 0.3s ease;
-        filter: brightness(1) saturate(1);
-    }
-    .social-icon:hover {
-        filter: brightness(1.2) saturate(1.2);
-        transform: scale(1.05);
-    }
+
+footer::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, 
+        transparent, 
+        rgba(255, 255, 255, 0.08), 
+        transparent);
+    transition: left 0.8s ease;
+}
+
+footer:hover::before {
+    left: 100%;
+}
+
+footer:hover {
+    transform: translateY(-3px);
+    box-shadow: 
+        0 25px 50px rgba(0, 0, 0, 0.35),
+        0 12px 24px rgba(40, 167, 69, 0.15),
+        inset 0 1px 0 rgba(255, 255, 255, 0.25);
+}
+
+.social-icon {
+    width: 3rem;
+    height: 3rem;
+    padding: 0.5rem;
+    background: linear-gradient(135deg, 
+        rgba(255, 255, 255, 0.15) 0%, 
+        rgba(248, 249, 250, 0.1) 100%);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 50%;
+    backdrop-filter: blur(10px);
+    box-shadow: 
+        0 8px 20px rgba(0, 0, 0, 0.15),
+        0 4px 8px rgba(0, 0, 0, 0.1),
+        inset 0 1px 0 rgba(255, 255, 255, 0.3);
+    transition: all 0.4s ease;
+    filter: brightness(1) saturate(1);
+    position: relative;
+    z-index: 2;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.social-icon::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(135deg, 
+        rgba(40, 167, 69, 0.2) 0%, 
+        rgba(32, 201, 151, 0.2) 100%);
+    border-radius: 50%;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.social-icon:hover::before {
+    opacity: 1;
+}
+
+.social-icon:hover {
+    transform: translateY(-5px) scale(1.1) rotate(5deg);
+    background: linear-gradient(135deg, 
+        rgba(255, 255, 255, 0.25) 0%, 
+        rgba(248, 249, 250, 0.2) 100%);
+    border-color: rgba(32, 201, 151, 0.4);
+    box-shadow: 
+        0 15px 35px rgba(0, 0, 0, 0.25),
+        0 8px 20px rgba(40, 167, 69, 0.2),
+        inset 0 1px 0 rgba(255, 255, 255, 0.4);
+    filter: brightness(1.2) saturate(1.2);
+}
+
+.social-icon img,
+.social-icon svg {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    transition: all 0.3s ease;
+    position: relative;
+    z-index: 3;
+}
 
 @media (min-width: 426px) {
+    footer {
+        margin: 4rem auto;
+        padding: 3rem;
+        gap: 3rem;
+    }
+    
     .social-icon {
         width: 4rem;
         height: 4rem;
+        padding: 0.7rem;
     }
+}
 
+@media (min-width: 768px) {
+    footer {
+        margin: 5rem auto;
+        padding: 4rem;
+        gap: 4rem;
+    }
+    
+    .social-icon {
+        width: 4.5rem;
+        height: 4.5rem;
+        padding: 0.8rem;
+    }
+}
+
+@media (min-width: 1024px) {
+    footer {
+        margin: 6rem auto;
+        max-width: 85%;
+        padding: 5rem;
+        gap: 5rem;
+    }
+    
+    .social-icon {
+        width: 5rem;
+        height: 5rem;
+        padding: 1rem;
+    }
+}
+
+@media (min-width: 1440px) {
+    footer {
+        max-width: 80%;
+        padding: 6rem;
+        gap: 6rem;
+    }
+    
+    .social-icon {
+        width: 5.5rem;
+        height: 5.5rem;
+        padding: 1.2rem;
+    }
 }
 
 /*#endregion footer*/
