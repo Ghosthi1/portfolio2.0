@@ -1,12 +1,28 @@
 ---
 import Me from "../../assets/github-mark/github-mark.svg";
+
+export interface Props {
+    title?: string;
+    subtitle?: string;
+    image?: string;
+    altText?: string;
+    showImage?: boolean;
+    id?: string;
+}
+
+const { 
+    title = "Welcome to My Portfolio",
+    subtitle = "Explore my projects, skills, and experiences. this is a very very long peice of text used for testing the hero section of my portfolio. I hope it looks good and works well on all devices. If you have any feedback, please let me know!",
+    image = Me.src,
+    altText = "Hero",
+    showImage = true,
+    id = "home"
+} = Astro.props;
 ---
-<div class ="hero" id="home">
+<div class ="hero" id={id}>
     <div class ="hero-content">
-        <img src={Me.src} alt="Hero" class="hero-image" />
-        <h1 class="hero-title">Welcome to My Portfolio</h1>
+        {showImage && <img src={image} alt={altText} class="hero-image" />}
+        <h1 class="hero-title">{title}</h1>
     </div>
-    <p class="text">Explore my projects, skills, and experiences. this is a very very long peice of text used for 
-        testing the hero section of my portfolio. I hope it looks good and works well on all devices. If you have any feedback, please let me know!</p>
-    </p>
+    <p class="text">{subtitle}</p>
 </div>

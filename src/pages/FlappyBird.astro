@@ -1,0 +1,23 @@
+---
+import BaseLayout from '../layouts/baseLayout.astro';
+import Hero from '../components/Hero/Hero.astro';
+import Description from '../components/Hero/Description.astro';
+
+const pageTitle = "Flappy Bird Game";
+---
+<BaseLayout pageTitle={pageTitle} backgroundVariant="game">
+    <Hero 
+        title="Flappy Bird Game"
+        subtitle="A classic arcade-style game recreated with modern web technologies"
+        showImage={false}
+        id="flappy-hero"
+    />
+    <Description 
+        description="This is a simple implementation of the Flappy Bird game using HTML, CSS, and JavaScript. The game features basic mechanics where the player controls a bird that must navigate through pipes by tapping the screen or pressing space to flap its wings."
+        showSkills={true}
+        skillsTitle="Technologies Used"
+        skills={["HTML5", "CSS3", "JavaScript", "Canvas API", "Game Physics", "Event Handling"]}
+        id="flappy-about"
+    />
+</BaseLayout>
+

@@ -1,33 +1,32 @@
 ---
+export interface Props {
+    description?: string;
+    showSkills?: boolean;
+    skills?: string[];
+    skillsTitle?: string;
+    id?: string;
+}
+
+const { 
+    description = "Explore my projects, skills, and experiences. This is a very long piece of text used for testing the hero section of my portfolio. I hope it looks good and works well on all devices. If you have any feedback, please let me know! Explore my projects, skills, and experiences. This is a very long piece of text used for testing the hero section of my portfolio. I hope it looks good and works well on all devices. If you have any feedback, please let me know! Explore my projects, skills, and experiences. This is a very long piece of text used for testing the hero section of my portfolio. I hope it looks good and works well on all devices. If you have any feedback, please let me know! Explore my projects, skills, and experiences. This is a very long piece of text used for testing the hero section of my portfolio. I hope it looks good and works well on all devices. If you have any feedback, please let me know! Explore my projects, skills, and experiences. This is a very long piece of text used for testing the hero section of my portfolio. I hope it looks good and works well on all devices. If you have any feedback, please let me know! Explore my projects, skills, and experiences. This is a very long piece of text used for testing the hero section of my portfolio. I hope it looks good and works well on all devices. If you have any feedback, please let me know!",
+    showSkills = true,
+    skills = ["Item 1", "Item 2", "Item 3", "Item 4", "Item 5", "Item 6", "Item 7", "Item 8", "Item 9"],
+    skillsTitle = "Skills at a glance",
+    id = "about"
+} = Astro.props;
 ---
-<div class="description" id="about">
+<div class="description" id={id}>
     <div class="text">
-        <p class="description-text">Explore my projects, skills, and experiences. This is a very long piece of 
-            text used for testing the hero section of my portfolio. I hope it looks good and works well on all 
-            devices. If you have any feedback, please let me know! Explore my projects, skills, and experiences. This is a very long piece of 
-            text used for testing the hero section of my portfolio. I hope it looks good and works well on all 
-            devices. If you have any feedback, please let me know! Explore my projects, skills, and experiences. This is a very long piece of 
-            text used for testing the hero section of my portfolio. I hope it looks good and works well on all 
-            devices. If you have any feedback, please let me know! Explore my projects, skills, and experiences. This is a very long piece of 
-            text used for testing the hero section of my portfolio. I hope it looks good and works well on all 
-            devices. If you have any feedback, please let me know! Explore my projects, skills, and experiences. This is a very long piece of 
-            text used for testing the hero section of my portfolio. I hope it looks good and works well on all 
-            devices. If you have any feedback, please let me know! Explore my projects, skills, and experiences. This is a very long piece of 
-            text used for testing the hero section of my portfolio. I hope it looks good and works well on all 
-            devices. If you have any feedback, please let me know!</p>
+        <p class="description-text">{description}</p>
     </div>
-    <h2>Skills at a glance</h2>
-    <div class="skills">
-        <ul class="grid">
-            <li>Item 1</li>
-            <li>Item 2</li>
-            <li>Item 3</li>
-            <li>Item 4</li>
-            <li>Item 5</li>
-            <li>Item 6</li>
-            <li>Item 7</li>
-            <li>Item 8</li>
-            <li>Item 9</li>
-        </ul>
-    </div>
+    {showSkills && (
+        <>
+            <h2>{skillsTitle}</h2>
+            <div class="skills">
+                <ul class="grid">
+                    {skills.map(skill => <li>{skill}</li>)}
+                </ul>
+            </div>
+        </>
+    )}
 </div>

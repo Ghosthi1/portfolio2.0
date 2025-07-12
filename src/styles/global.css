@@ -74,11 +74,33 @@ body {
 }
 /* Game-themed background */
 .circle-game {
+    display: block;
+    bottom: -3%;
+    left: -7%;
+    width: 20%;
+    aspect-ratio: 1;
     background: linear-gradient(135deg, #dc3545, #fd7e14, #ffc107);
+    box-shadow: 
+        0 4px 16px rgba(220, 53, 69, 0.15),
+        0 2px 8px rgba(253, 126, 20, 0.2),
+        inset 0 2px 8px rgba(255, 255, 255, 0.1);
+    border-radius: 50%;
+    position: fixed;
 }
 
 .circle2-game {
+    display: block;
+    top: -5%;
+    right: -10%;
+    width: 34%;
+    aspect-ratio: 1;
     background: linear-gradient(225deg, #e83e8c, #6f42c1, #6610f2);
+    box-shadow: 
+        0 6px 24px rgba(232, 62, 140, 0.12),
+        0 3px 12px rgba(111, 66, 193, 0.18),
+        inset 0 3px 12px rgba(255, 255, 255, 0.08);
+    border-radius: 50%;
+    position: fixed;
 }
 
 /* Project-specific background */
@@ -91,7 +113,7 @@ body {
 }
 
 @media (min-width: 768px) {
-    .circle {
+    .circle, .circle-default, .circle-game, .circle-project {
         width: 22%;
         bottom: -5%;
         left: -8%;
@@ -100,7 +122,15 @@ body {
             0 2px 10px rgba(15, 81, 50, 0.22),
             inset 0 2px 10px rgba(255, 255, 255, 0.12);
     }
-    .circle2 {
+    
+    .circle-game {
+        box-shadow: 
+            0 5px 20px rgba(220, 53, 69, 0.18),
+            0 2px 10px rgba(253, 126, 20, 0.22),
+            inset 0 2px 10px rgba(255, 255, 255, 0.12);
+    }
+    
+    .circle2, .circle2-default, .circle2-game, .circle2-project {
         width: 32%;
         top: -14%;
         right: -10%;
@@ -109,15 +139,22 @@ body {
             0 4px 15px rgba(25, 135, 84, 0.2),
             inset 0 4px 15px rgba(255, 255, 255, 0.1);
     }
+    
+    .circle2-game {
+        box-shadow: 
+            0 8px 30px rgba(232, 62, 140, 0.15),
+            0 4px 15px rgba(111, 66, 193, 0.2),
+            inset 0 4px 15px rgba(255, 255, 255, 0.1);
+    }
 }
 
 @media (min-width: 1024px) {
-    .circle {
+    .circle, .circle-default, .circle-game, .circle-project {
         width: 20%;
         bottom: -8%;
         left: -9%;
     }
-    .circle2 {
+    .circle2, .circle2-default, .circle2-game, .circle2-project {
         width: 35%;
         top: -15%;
         right: -12%;
