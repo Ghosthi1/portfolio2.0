@@ -2,6 +2,7 @@
 import BaseLayout from '../layouts/baseLayout.astro';
 import Hero from '../components/Hero/Hero.astro';
 import Description from '../components/Hero/Description.astro';
+import ProjectDemo from '../components/projects/projectDemo.astro';
 
 const pageTitle = "Flappy Bird Game";
 ---
@@ -9,15 +10,36 @@ const pageTitle = "Flappy Bird Game";
     <Hero 
         title="Flappy Bird Game"
         subtitle="A classic arcade-style game recreated with modern web technologies"
-        showImage={false}
-        id="flappy-hero"
+        showImage={true}
+        image="/src/assets/Projects/flappybird/flappy.jpg"
+        altText="Flappy Bird gameplay screenshot"
     />
     <Description 
         description="This is a simple implementation of the Flappy Bird game using HTML, CSS, and JavaScript. The game features basic mechanics where the player controls a bird that must navigate through pipes by tapping the screen or pressing space to flap its wings."
         showSkills={true}
         skillsTitle="Technologies Used"
         skills={["HTML5", "CSS3", "JavaScript", "Canvas API", "Game Physics", "Event Handling"]}
-        id="flappy-about"
+        id="about"
+    />
+    <ProjectDemo 
+        id="projects"
+        projectTitle='Flappy Bird Game'
+        githubUrl="https://github.com/Ghosthi1/FlappyBird"
+        itchUrl="https://ghosthi.itch.io/flappybird-clone"
+        media={[
+            {
+                type: 'image',
+                src: '/src/assets/Projects/flappybird/flappySplash.png',
+                alt: 'Flappy Bird game splash screen',
+                caption: 'Game splash screen with start button'
+            },
+            {
+                type: 'image',
+                src: '/src/assets/Projects/flappybird/flappy.jpg',
+                alt: 'Flappy Bird gameplay screenshot',
+                caption: 'Main gameplay showing bird navigating through pipes'
+            }
+        ]}
     />
 </BaseLayout>
 

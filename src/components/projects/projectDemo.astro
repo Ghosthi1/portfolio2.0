@@ -1,0 +1,126 @@
+---
+export interface Props {
+    id?: string;
+    media?: Array<{
+        type: 'image' | 'video';
+        src: string;
+        alt?: string;
+        caption?: string;
+    }>;
+    githubUrl?: string;
+    itchUrl?: string;
+    projectTitle?: string;
+}
+
+const { 
+    id = "about",
+    media = [],
+    githubUrl,
+    itchUrl,
+    projectTitle
+} = Astro.props;
+---
+<div class="project-demo" id={id}>
+    {media.length > 0 && (
+        <div class="slideshow-container">
+            <div class="slideshow" id={`slideshow-${id}`}>
+                {media.map((item, index) => (
+                    <div class="slide" data-index={index}>
+                        {item.type === 'image' ? (
+                            <img 
+                                src={item.src} 
+                                alt={item.alt || `Project media ${index + 1}`}
+                                loading="lazy"
+                            />
+                        ) : (
+                            <video 
+                                src={item.src} 
+                                controls
+                                preload="metadata"
+                                aria-label={item.alt || `Project video ${index + 1}`}
+                            />
+                        )}
+                    </div>
+                ))}
+            </div>
+            
+            {media.length > 1 && (
+                <>
+                    <button class="slide-btn prev-btn" data-slideshow={`slideshow-${id}`} aria-label="Previous slide">
+                        &#8249;
+                    </button>
+                    <button class="slide-btn next-btn" data-slideshow={`slideshow-${id}`} aria-label="Next slide">
+                        &#8250;
+                    </button>
+                    
+                    <div class="slide-indicators">
+                        {media.map((_, index) => (
+                            <button 
+                                class="indicator" 
+                                data-slideshow={`slideshow-${id}`}
+                                data-slide={index}
+                                aria-label={`Go to slide ${index + 1}`}
+                            />
+                        ))}
+                    </div>
+                </>
+            )}
+        </div>
+    )}
+    
+    {media.length > 0 && (
+        <div class="slide-descriptions">
+            {media.map((item, index) => (
+                item.caption && (
+                    <div 
+                        class="slide-description" 
+                        data-slideshow={`slideshow-${id}`}
+                        data-slide={index}
+                    >
+                        {item.caption}
+                    </div>
+                )
+            ))}
+        </div>
+    )}
+    
+    {(githubUrl || itchUrl) && (
+        <div class="project-links">
+            {projectTitle && (
+                <h3 class="project-links-title">View {projectTitle}</h3>
+            )}
+            <div class="links-container">
+                {githubUrl && (
+                    <a 
+                        href={githubUrl} 
+                        target="_blank" 
+                        rel="noopener noreferrer" 
+                        class="project-link github-link"
+                        aria-label={`View ${projectTitle || 'project'} on GitHub`}
+                    >
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
+                        </svg>
+                        <span>GitHub</span>
+                    </a>
+                )}
+                {itchUrl && (
+                    <a 
+                        href={itchUrl} 
+                        target="_blank" 
+                        rel="noopener noreferrer" 
+                        class="project-link itch-link"
+                        aria-label={`View ${projectTitle || 'project'} on Itch.io`}
+                    >
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M3.13 1.338C2.08 1.96.02 4.328 0 4.95v1.03c0 1.16.84 2.1 1.88 2.1s1.88-.94 1.88-2.1V5.97c0-.1.08-.19.19-.19s.19.09.19.19v1.01c0 1.16.84 2.1 1.88 2.1s1.88-.94 1.88-2.1V5.97c0-.1.08-.19.19-.19s.19.09.19.19v1.01c0 1.16.84 2.1 1.88 2.1s1.88-.94 1.88-2.1V5.97c0-.1.08-.19.19-.19s.19.09.19.19v1.01c0 1.16.84 2.1 1.88 2.1s1.88-.94 1.88-2.1V5.97c0-.1.08-.19.19-.19s.19.09.19.19v1.01c0 1.16.84 2.1 1.88 2.1s1.88-.94 1.88-2.1V4.95c-.02-.62-2.08-2.99-3.13-3.612C18.47.677 15.77 0 12 0S5.53.677 3.13 1.338zM20.95 7.01c-1.25 0-2.26 1.01-2.26 2.26 0 .44.13.85.35 1.2l-1.22 3.98-.18.65c-.19.67-.59 1.9-.59 1.9s-.25.47-.74.47c-.5 0-.75-.47-.75-.47s-.41-1.23-.59-1.9l-.18-.65L13.96 10.47c.22-.35.35-.76.35-1.2 0-1.25-1.01-2.26-2.26-2.26s-2.26 1.01-2.26 2.26c0 .44.13.85.35 1.2l-.83 2.72-.18.65c-.19.67-.59 1.9-.59 1.9s-.25.47-.74.47c-.5 0-.75-.47-.75-.47s-.41-1.23-.59-1.9l-.18-.65L5.45 10.47c.22-.35.35-.76.35-1.2 0-1.25-1.01-2.26-2.26-2.26S1.28 7.76 1.28 9.01c0 .98.63 1.81 1.51 2.12v.01s.15 1.25.15 2.26c0 2.61 1.95 4.77 4.5 5.07v.01c.58.07 1.16.07 1.74 0v-.01c2.55-.3 4.5-2.46 4.5-5.07 0-1.01.15-2.26.15-2.26v-.01c.88-.31 1.51-1.14 1.51-2.12 0-1.25-1.01-2.26-2.26-2.26s-2.26 1.01-2.26 2.26c0 .98.63 1.81 1.51 2.12v.01s.15 1.25.15 2.26c0 2.61 1.95 4.77 4.5 5.07v.01c.58.07 1.16.07 1.74 0v-.01c2.55-.3 4.5-2.46 4.5-5.07 0-1.01.15-2.26.15-2.26v-.01c.88-.31 1.51-1.14 1.51-2.12-.01-1.25-1.02-2.26-2.27-2.26z"/>
+                        </svg>
+                        <span>Itch.io</span>
+                    </a>
+                )}
+            </div>
+        </div>
+    )}
+</div>
+
+<script src="/src/scripts/slideshow.js"></script>
