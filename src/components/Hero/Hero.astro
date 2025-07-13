@@ -7,7 +7,6 @@ export interface Props {
     image?: string;
     altText?: string;
     showImage?: boolean;
-    id?: string;
 }
 
 const { 
@@ -16,10 +15,9 @@ const {
     image = Me.src,
     altText = "Hero",
     showImage = true,
-    id = "home"
 } = Astro.props;
 ---
-<div class ="hero" id={id}>
+<div class ="hero">
     <div class ="hero-content">
         {showImage && <img src={image} alt={altText} class="hero-image" />}
         <h1 class="hero-title">{title}</h1>
