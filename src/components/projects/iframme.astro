@@ -1,0 +1,44 @@
+---
+export interface Props {
+    embedUrl?: string;
+    fallbackUrl?: string;
+    title?: string;
+    width?: string;
+    height?: string;
+    id?: string;
+}
+
+const { 
+    embedUrl,
+    fallbackUrl,
+    title = "Game",
+    width = "100%",
+    height = "400px",
+    id = "game-iframe"
+} = Astro.props;
+---
+
+{embedUrl && (
+    <div class="iframe-container" id={id} style={`--iframe-height: ${height}`}>
+        <div class="iframe-wrapper">
+            <iframe 
+                src={embedUrl}
+                width={width}
+                allowfullscreen
+                loading="lazy"
+                title={`${title} - Embedded Game`}
+                sandbox="allow-scripts allow-same-origin allow-forms allow-downloads">
+            </iframe>
+            <noscript>
+                <p>Your browser doesn&apos;t support iframes or JavaScript is disabled. 
+                {fallbackUrl && <a href={fallbackUrl} target="_blank" rel="noopener noreferrer">Play the game on Itch.io</a>}
+                </p>
+            </noscript>
+        </div>
+        {fallbackUrl && (
+            <div class="iframe-fallback">
+                <p>Having trouble loading the game? <a href={fallbackUrl} target="_blank" rel="noopener noreferrer">Play directly on Itch.io</a></p>
+            </div>
+        )}
+    </div>
+)}
