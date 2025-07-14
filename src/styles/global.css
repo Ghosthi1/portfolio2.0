@@ -612,7 +612,8 @@ h1 {
         0 8px 16px rgba(40, 167, 69, 0.12),
         inset 0 1px 0 rgba(255, 255, 255, 0.2);
     max-width: 90%;
-    margin: 3rem auto;
+    margin: 4rem auto;
+    padding: 0.5rem;
     position: relative;
     overflow: hidden;
     transition: all 0.4s ease;
@@ -1404,7 +1405,7 @@ footer:hover {
         padding: 1.2rem;
     }
 }
-
+/*#endregion footer*/
 /*#region slideshow styles*/
 .project-demo {
     border-radius: 20px;
@@ -1420,6 +1421,7 @@ footer:hover {
         inset 0 1px 0 rgba(255, 255, 255, 0.2);
     max-width: 90%;
     margin: 3rem auto;
+    padding: 2rem; /* Add this line */
     position: relative;
     overflow: hidden;
     transition: all 0.4s ease;
@@ -1605,7 +1607,7 @@ footer:hover {
     .project-demo {
         max-width: 90%;
         margin: 2rem auto;
-        padding: 1.5rem;
+        padding: 1.5rem; /* Add this line */
     }
     
     .slideshow {
@@ -1635,12 +1637,14 @@ footer:hover {
 @media (min-width: 426px) {
     .project-demo {
         margin: 4rem auto;
+        padding: 2.5rem; /* Add this line */
     }
 }
 
 @media (min-width: 768px) {
     .project-demo {
         margin: 5rem auto;
+        padding: 3rem; /* Add this line */
     }
 }
 
@@ -1648,12 +1652,14 @@ footer:hover {
     .project-demo {
         margin: 6rem auto;
         max-width: 85%;
+        padding: 4rem; /* Add this line */
     }
 }
 
 @media (min-width: 1440px) {
     .project-demo {
         max-width: 80%;
+        padding: 5rem; /* Add this line */
     }
 }
 /*#endregion slideshow styles*/
@@ -1672,11 +1678,11 @@ footer:hover {
         0 8px 16px rgba(40, 167, 69, 0.12),
         inset 0 1px 0 rgba(255, 255, 255, 0.2);
     max-width: 90%;
-    margin: 3rem auto;
+    margin: 5rem auto;
     position: relative;
     overflow: hidden;
     transition: all 0.4s ease;
-    padding: 2rem;
+    padding: 3rem;
 }
 
 .iframe-container::before {
