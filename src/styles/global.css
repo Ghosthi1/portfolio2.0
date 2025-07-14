@@ -901,9 +901,9 @@ h1 {
 
 .project-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    gap: 2rem;
-    padding: 2rem;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+    padding: 1.5rem;
     position: relative;
     z-index: 1;
 }
@@ -922,8 +922,9 @@ h1 {
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    min-height: 250px;
-    padding: 1.5rem;
+    min-height: 220px;
+    max-height: 220px;
+    padding: 1rem;
     transition: all 0.4s ease;
     position: relative;
     overflow: hidden;
@@ -962,7 +963,8 @@ h1 {
 .project-icon {
     width: 100%;
     height: auto;
-    max-height: 150px;
+    max-height: 120px;
+    min-height: 80px;
     object-fit: contain;
     border-radius: 15px;
     transition: all 0.4s ease;
@@ -1015,6 +1017,25 @@ h1 {
 }
 
 /* Projects responsive design */
+@media (max-width: 425px) {
+    .project-grid {
+        grid-template-columns: 1fr 1fr;
+        gap: 1rem;
+        padding: 1rem;
+    }
+    
+    .project-card {
+        min-height: 180px;
+        max-height: 180px;
+        padding: 0.8rem;
+    }
+    
+    .project-icon {
+        max-height: 100px;
+        min-height: 70px;
+    }
+}
+
 @media (min-width: 426px) {
     .projects-container {
         margin: 4rem auto;
@@ -1026,18 +1047,20 @@ h1 {
     }
     
     .project-grid {
-        grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-        gap: 2.5rem;
-        padding: 3rem;
-    }
-    
-    .project-card {
-        min-height: 280px;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 2rem;
         padding: 2rem;
     }
     
+    .project-card {
+        min-height: 240px;
+        max-height: 240px;
+        padding: 1.5rem;
+    }
+    
     .project-icon {
-        max-height: 170px;
+        max-height: 140px;
+        min-height: 90px;
     }
     
     .project-item::before {
@@ -1057,18 +1080,20 @@ h1 {
     }
     
     .project-grid {
-        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-        gap: 3rem;
-        padding: 4rem;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 2.5rem;
+        padding: 3rem;
     }
     
     .project-card {
-        min-height: 300px;
-        padding: 2.5rem;
+        min-height: 260px;
+        max-height: 260px;
+        padding: 2rem;
     }
     
     .project-icon {
-        max-height: 180px;
+        max-height: 160px;
+        min-height: 100px;
     }
     
     .project-item::before {
@@ -1390,7 +1415,7 @@ footer:hover {
         0 20px 40px rgba(0, 0, 0, 0.25),
         0 8px 16px rgba(40, 167, 69, 0.12),
         inset 0 1px 0 rgba(255, 255, 255, 0.2);
-    max-width: 80%;
+    max-width: 90%;
     margin: 3rem auto;
     position: relative;
     overflow: hidden;
@@ -1575,8 +1600,14 @@ footer:hover {
 }
 
 @media (max-width: 768px) {
+    .project-demo {
+        max-width: 90%;
+        margin: 2rem auto;
+        padding: 1.5rem;
+    }
+    
     .slideshow {
-        height: 300px;
+        height: 450px;
     }
 
     .slide-btn {
@@ -1598,6 +1629,31 @@ footer:hover {
         padding: 0.5rem;
     }
 }
+
+@media (min-width: 426px) {
+    .project-demo {
+        margin: 4rem auto;
+    }
+}
+
+@media (min-width: 768px) {
+    .project-demo {
+        margin: 5rem auto;
+    }
+}
+
+@media (min-width: 1024px) {
+    .project-demo {
+        margin: 6rem auto;
+        max-width: 85%;
+    }
+}
+
+@media (min-width: 1440px) {
+    .project-demo {
+        max-width: 80%;
+    }
+}
 /*#endregion slideshow styles*/
 
 /* #region Iframe Component Styles */
@@ -1613,7 +1669,7 @@ footer:hover {
         0 20px 40px rgba(0, 0, 0, 0.25),
         0 8px 16px rgba(40, 167, 69, 0.12),
         inset 0 1px 0 rgba(255, 255, 255, 0.2);
-    max-width: 80%;
+    max-width: 90%;
     margin: 3rem auto;
     position: relative;
     overflow: hidden;
@@ -1709,6 +1765,35 @@ footer:hover {
     
     .iframe-wrapper {
         height: var(--iframe-height, 250px);
+    }
+    
+    .slideshow {
+        height: 380px;
+    }
+}
+
+@media (min-width: 426px) {
+    .iframe-container {
+        margin: 4rem auto;
+    }
+}
+
+@media (min-width: 768px) {
+    .iframe-container {
+        margin: 5rem auto;
+    }
+}
+
+@media (min-width: 1024px) {
+    .iframe-container {
+        margin: 6rem auto;
+        max-width: 85%;
+    }
+}
+
+@media (min-width: 1440px) {
+    .iframe-container {
+        max-width: 80%;
     }
 }
 /*#endregion Iframe Component Styles */
