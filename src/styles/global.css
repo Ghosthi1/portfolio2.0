@@ -1746,25 +1746,13 @@ footer:hover {
 /* Responsive iframe container */
 @media (max-width: 768px) {
     .iframe-container {
-        max-width: 95%;
-        margin: 2rem auto;
-        padding: 1.5rem;
-    }
-    
-    .iframe-wrapper {
-        height: var(--iframe-height, 300px);
+        display: none;
     }
 }
 
 @media (max-width: 480px) {
     .iframe-container {
-        max-width: 98%;
-        margin: 1.5rem auto;
-        padding: 1rem;
-    }
-    
-    .iframe-wrapper {
-        height: var(--iframe-height, 250px);
+        display: none;
     }
     
     .slideshow {
