@@ -1,0 +1,53 @@
+---
+export interface Props {
+    introText?: string;
+    introLink?: {
+        url: string;
+        text: string;
+    };
+    lessons: {
+        icon: string;
+        title: string;
+        description: string;
+    }[];
+    futureGoals?: string;
+}
+
+const { introText, introLink, lessons, futureGoals } = Astro.props;
+---
+
+<div class="reflections-section">
+    <div class="reflections-content">
+        <h2 class="reflections-title">
+            <span class="title-highlight">Reflections</span>
+        </h2>
+        
+        {introText && (
+            <p class="reflections-intro">
+                {introText}
+                {introLink && (
+                    <a href={introLink.url} target="_blank" rel="noopener noreferrer" class="external-link">
+                        {introLink.text}
+                    </a>
+                )}
+            </p>
+        )}
+        
+        <div class="lessons-grid">
+            {lessons.map((lesson) => (
+                <div class="lesson-card">
+                    <div class="lesson-icon">{lesson.icon}</div>
+                    <h3>{lesson.title}</h3>
+                    <p>{lesson.description}</p>
+                </div>
+            ))}
+        </div>
+        
+        {futureGoals && (
+            <div class="future-goals">
+                <h3 class="future-title">Future Improvements</h3>
+                <p>{futureGoals}</p>
+            </div>
+        )}
+    </div>
+</div>

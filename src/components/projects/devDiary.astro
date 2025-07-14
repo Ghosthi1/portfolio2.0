@@ -1,0 +1,15 @@
+---
+export interface Props {
+    url: string;
+    linkText?: string;
+    className?: string;
+}
+
+const { url, linkText = "View Dev Diary on Affine →", className = "description-link" } = Astro.props;
+---
+
+<div class={className}>
+    <a href={url} target="_blank" rel="noopener noreferrer">
+        {linkText}
+    </a>
+</div>

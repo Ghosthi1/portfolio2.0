@@ -1,0 +1,32 @@
+---
+export interface Challenge {
+    icon: string;
+    title: string;
+    description: string;
+}
+
+export interface Props {
+    challenges: Challenge[];
+}
+
+const { challenges } = Astro.props;
+---
+
+<div class="challenges-section">
+    <div class="challenges-content">
+        <h2 class="challenges-title">
+            <span class="title-highlight">Challenges Faced</span>
+        </h2>
+        <p class="challenges-intro">During development, I encountered several technical and design challenges that tested my problem-solving skills and pushed me to learn new concepts.</p>
+        
+        <div class="challenges-grid">
+            {challenges.map((challenge) => (
+                <div class="challenge-card">
+                    <div class="challenge-icon">{challenge.icon}</div>
+                    <h3>{challenge.title}</h3>
+                    <p>{challenge.description}</p>
+                </div>
+            ))}
+        </div>
+    </div>
+</div>
