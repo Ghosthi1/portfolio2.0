@@ -1845,20 +1845,16 @@ footer:hover {
     margin-bottom: 1.5rem;
     font-size: 2.5rem;
     font-weight: 700;
-    color: #ffffff; /* Fallback color */
-    background: linear-gradient(135deg, #28a745, #20c997, #6f42c1);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-    text-shadow: none;
+    color: #20c997; 
+    display: block;
+    visibility: visible;
 }
 
-/* Fallback for browsers that don't support background-clip: text */
-@supports not (-webkit-background-clip: text) {
-    .reflections-title {
-        color: #20c997;
-        background: none;
-    }
+
+/* Ensure spans are visible */
+.reflections-title span {
+    color: inherit;
+    display: inline-block;
 }
 
 .title-highlight {
