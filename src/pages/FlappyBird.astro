@@ -93,6 +93,36 @@ const pageTitle = "Flappy Bird Game";
         id="flappybird-iframe"
     />
 
+    <div class="challenges-section">
+        <div class="challenges-content">
+            <h2 class="challenges-title">
+                <span class="title-highlight">Challenges Faced</span>
+            </h2>
+            <p class="challenges-intro">During development, I encountered several technical and design challenges that tested my problem-solving skills and pushed me to learn new concepts.</p>
+            
+            <div class="challenges-grid">
+                <div class="challenge-card">
+                    <div class="challenge-icon">🎯</div>
+                    <h3>Pipe Gap Detection & Consistent Sizing</h3>
+                    <p>Designed a modular pipe system using a single prefab that extends beyond screen boundaries, allowing vertical repositioning for varying heights. The solution uses fixed collision boxes for different interaction types. The algorithm randomly determines the bottom pipe height, places a scoring trigger box above it, then positions the top pipe to cover the remaining screen distance. This approach ensures consistent gap sizing while enabling future features like adjustable score zones.</p>
+                </div>
+                
+                <div class="challenge-card">
+                    <div class="challenge-icon">💥</div>
+                    <h3>Game State Synchronization Issues</h3>
+                    <p>Encountered a critical issue where background animations continued running despite game state changes. Discovered that static variables provide cross-component data sharing compared to inheritance patterns. Refactored the codebase to implement a static game state variable, which streamlined state management and enabled precise control over game start/stop functionality across all game objects.</p>
+                </div>
+                
+                <div class="challenge-card">
+                    <div class="challenge-icon">♾️</div>
+                    <h3>Infinite Scrolling</h3>
+                    <p>Creating seamless infinite scrolling for backgrounds and pipes without memory leaks. Learning object pooling to efficiently reuse game objects.</p>
+                </div>
+                
+            </div>
+        </div>
+    </div>
+
     <div class="reflections-section">
         <div class="reflections-content">
             <h2 class="reflections-title">

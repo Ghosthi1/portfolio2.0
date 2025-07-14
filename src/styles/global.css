@@ -2088,37 +2088,27 @@ footer:hover {
 }
 /*#endregion Reflections Section Styles */
 
-/*#region Description Link Styles */
-.description-link {
-    text-align: center;
-    margin: 2rem auto;
-    max-width: 90%;
-}
-
-.description-link a {
-    display: inline-flex;
-    align-items: center;
-    gap: 0.5rem;
-    padding: 1rem 2rem;
+/* #region Challenges Section Styles */
+.challenges-section {
+    border-radius: 20px;
     background: linear-gradient(135deg, 
-        rgba(40, 167, 69, 0.2) 0%, 
-        rgba(32, 201, 151, 0.2) 100%);
-    border: 2px solid rgba(40, 167, 69, 0.4);
-    border-radius: 25px;
-    color: #ffffff;
-    text-decoration: none;
-    font-weight: 600;
-    font-size: 1.1rem;
-    transition: all 0.3s ease;
-    backdrop-filter: blur(10px);
+        rgba(40, 167, 69, 0.12) 0%, 
+        rgba(32, 201, 151, 0.1) 50%, 
+        rgba(111, 66, 193, 0.08) 100%);
+    backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.12);
     box-shadow: 
-        0 4px 15px rgba(0, 0, 0, 0.2),
-        0 2px 8px rgba(40, 167, 69, 0.15);
+        0 20px 40px rgba(0, 0, 0, 0.25),
+        0 8px 16px rgba(40, 167, 69, 0.12),
+        inset 0 1px 0 rgba(255, 255, 255, 0.15);
+    max-width: 90%;
+    margin: 3rem auto;
     position: relative;
     overflow: hidden;
+    transition: all 0.4s ease;
 }
 
-.description-link a::before {
+.challenges-section::before {
     content: '';
     position: absolute;
     top: 0;
@@ -2127,73 +2117,185 @@ footer:hover {
     height: 100%;
     background: linear-gradient(90deg, 
         transparent, 
-        rgba(255, 255, 255, 0.1), 
+        rgba(255, 255, 255, 0.08), 
         transparent);
-    transition: left 0.6s ease;
+    transition: left 0.8s ease;
 }
 
-.description-link a:hover::before {
+.challenges-section:hover::before {
     left: 100%;
 }
 
-.description-link a:hover {
-    background: linear-gradient(135deg, 
-        rgba(40, 167, 69, 0.3) 0%, 
-        rgba(32, 201, 151, 0.3) 100%);
-    border-color: rgba(32, 201, 151, 0.6);
+.challenges-section:hover {
     transform: translateY(-3px);
     box-shadow: 
-        0 8px 25px rgba(0, 0, 0, 0.3),
-        0 4px 15px rgba(40, 167, 69, 0.25);
-    color: #20c997;
+        0 25px 50px rgba(0, 0, 0, 0.35),
+        0 12px 24px rgba(40, 167, 69, 0.15),
+        inset 0 1px 0 rgba(255, 255, 255, 0.2);
 }
 
-/* Description link responsive design */
-@media (min-width: 426px) {
-    .description-link {
-        margin: 3rem auto;
-    }
-    
-    .description-link a {
-        padding: 1.2rem 2.5rem;
-        font-size: 1.2rem;
-    }
+.challenges-content {
+    padding: 2.5rem;
+    position: relative;
+    z-index: 1;
 }
 
-@media (min-width: 768px) {
-    .description-link {
-        margin: 4rem auto;
-    }
-    
-    .description-link a {
-        padding: 1.4rem 3rem;
-        font-size: 1.3rem;
-    }
+.challenges-title {
+    text-align: center;
+    margin-bottom: 1.5rem;
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: #20c997; 
+    display: block;
+    visibility: visible;
 }
 
-@media (min-width: 1024px) {
-    .description-link {
-        margin: 5rem auto;
-        max-width: 85%;
-    }
-    
-    .description-link a {
-        padding: 1.6rem 3.5rem;
-        font-size: 1.4rem;
-    }
+/* Ensure spans are visible */
+.challenges-title span {
+    color: inherit;
+    display: inline-block;
+}
+
+.challenges-intro {
+    text-align: center;
+    font-size: 1.1rem;
+    color: #e0e0e0;
+    margin-bottom: 2.5rem;
+    line-height: 1.6;
+}
+
+.challenges-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1.5rem;
+    margin-bottom: 2.5rem;
+}
+
+.challenge-card {
+    background: linear-gradient(135deg, 
+        rgba(255, 255, 255, 0.05) 0%, 
+        rgba(255, 255, 255, 0.02) 100%);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 15px;
+    padding: 1.8rem;
+    position: relative;
+    transition: all 0.3s ease;
+    backdrop-filter: blur(10px);
+    overflow: hidden;
+}
+
+.challenge-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background: linear-gradient(90deg, #28a745, #20c997, #6f42c1);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.challenge-card:hover::before {
+    opacity: 1;
+}
+
+.challenge-card:hover {
+    transform: translateY(-5px);
+    background: linear-gradient(135deg, 
+        rgba(255, 255, 255, 0.08) 0%, 
+        rgba(255, 255, 255, 0.04) 100%);
+    border-color: rgba(40, 167, 69, 0.3);
+    box-shadow: 
+        0 15px 30px rgba(0, 0, 0, 0.2),
+        0 5px 15px rgba(40, 167, 69, 0.15);
+}
+
+.challenge-icon {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+    display: block;
+    text-align: center;
+    filter: grayscale(0.3);
+    transition: all 0.3s ease;
+}
+
+.challenge-card:hover .challenge-icon {
+    filter: grayscale(0);
+    transform: scale(1.1);
+}
+
+.challenge-card h3 {
+    color: #ffffff;
+    font-size: 1.3rem;
+    font-weight: 600;
+    margin-bottom: 1rem;
+    text-align: center;
+    background: linear-gradient(135deg, #ffffff, #e0e0e0);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.challenge-card p {
+    color: #b0b0b0;
+    line-height: 1.6;
+    font-size: 0.95rem;
+    text-align: left;
 }
 
 @media (min-width: 1440px) {
-    .description-link {
+    .challenges-section {
         max-width: 80%;
     }
-    
-    .description-link a {
-        padding: 1.8rem 4rem;
-        font-size: 1.5rem;
+}
+@media (min-width: 1024px) and (max-width: 1439px) {
+    .challenges-section {
+        max-width: 85%;
     }
 }
-/*#endregion Description Link Styles */
+
+@media (max-width: 768px) {
+    .challenges-content {
+        padding: 1.5rem;
+    }
+    
+    .challenges-title {
+        font-size: 2rem;
+    }
+    
+    .challenges-grid {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+    }
+    
+    .challenge-card {
+        padding: 1.5rem;
+    }
+    
+    .challenges-section{
+        width: 90%;
+    }
+}
+
+@media (max-width: 480px) {
+    .challenges-content {
+        padding: 1rem;
+    }
+    
+    .challenges-title {
+        font-size: 1.8rem;
+    }
+    
+    .challenge-card h3 {
+        font-size: 1.2rem;
+    }
+    
+    .challenge-card p {
+        font-size: 0.9rem;
+    }
+}
+/*#endregion Challenges Section Styles */
 
 
 
