@@ -1448,7 +1448,8 @@ footer:hover {
     width: 100%;
     height: 100%;
     opacity: 0;
-    transition: opacity 0.5s ease-in-out;
+    visibility: hidden;
+    transition: opacity 0.5s ease-in-out, visibility 0.5s ease-in-out;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -1457,6 +1458,7 @@ footer:hover {
 
 .slide.active {
     opacity: 1;
+    visibility: visible;
 }
 
 .slide img,

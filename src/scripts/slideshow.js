@@ -3,6 +3,10 @@ document.addEventListener('DOMContentLoaded', function() {
     const slideshows = document.querySelectorAll('.slideshow');
     
     slideshows.forEach(slideshow => {
+        // Skip if already initialized
+        if (slideshow.dataset.initialized === 'true') return;
+        slideshow.dataset.initialized = 'true';
+        
         const slides = slideshow.querySelectorAll('.slide');
         const prevBtn = document.querySelector(`.prev-btn[data-slideshow="${slideshow.id}"]`);
         const nextBtn = document.querySelector(`.next-btn[data-slideshow="${slideshow.id}"]`);
@@ -11,6 +15,13 @@ document.addEventListener('DOMContentLoaded', function() {
         if (slides.length === 0) return;
         
         let currentSlide = 0;
+        
+        // Hide all slides first
+        slides.forEach((slide, index) => {
+            slide.classList.remove('active');
+        });
+        indicators.forEach(indicator => indicator.classList.remove('active'));
+        descriptions.forEach(description => description.classList.remove('active'));
         
         // Show the first slide initially
         slides[0].classList.add('active');

@@ -30,7 +30,7 @@ const {
                             <img 
                                 src={item.src} 
                                 alt={item.alt || `Project media ${index + 1}`}
-                                loading="lazy"
+                                loading={index === 0 ? "eager" : "lazy"}
                             />
                         ) : (
                             <video 
