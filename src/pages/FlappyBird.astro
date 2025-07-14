@@ -8,24 +8,32 @@ import IframeComponent from '../components/projects/iframme.astro';
 // Import project images
 import flappyImg from '../assets/Projects/flappybird/flappy.jpg';
 import flappySplashImg from '../assets/Projects/flappybird/flappySplash.png';
+import idleGif from '../assets/Projects/flappybird/idle.gif';
+import jumpingGif from '../assets/Projects/flappybird/jumping.gif';
+import pauseDemoGif from '../assets/Projects/flappybird/PauseDemo.gif';
+import oldGameGif from '../assets/Projects/flappybird/oldgame.gif';
+import newBirdImg from '../assets/Projects/flappybird/newbird.png';
+import oldBirdImg from '../assets/Projects/flappybird/oldBird.png';
 
 const pageTitle = "Flappy Bird Game";
 ---
 <BaseLayout pageTitle={pageTitle} backgroundVariant="game">
     <Hero 
         title="Flappy Bird Game"
-        subtitle="A classic arcade-style game recreated with modern web technologies"
+        subtitle="A Recreation of the Flappy Bird Game"
         showImage={true}
         image={flappyImg.src}
         altText="Flappy Bird gameplay screenshot"
     />
     <Description 
-        description="This is a simple implementation of the Flappy Bird game using HTML, CSS, and JavaScript. The game features basic mechanics where the player controls a bird that must navigate through pipes by tapping the screen or pressing space to flap its wings."
+        description={'My first full development cycle game I made in Unity, With a mix of self made pixel art and 8-bit audio and assets from the asset store.'}
         showSkills={true}
         skillsTitle="Technologies Used"
-        skills={["HTML5", "CSS3", "JavaScript", "Canvas API", "Game Physics", "Event Handling"]}
+        skills={["Unity", "C#", "2D modeling", "Sound design", "Game Physics", "Data Persistence", "UI Design"]}
         id="about"
     />
+
+    
     <ProjectDemo 
         id="projects"
         projectTitle='Flappy Bird Game'
@@ -36,13 +44,43 @@ const pageTitle = "Flappy Bird Game";
                 type: 'image',
                 src: flappySplashImg.src,
                 alt: 'Flappy Bird game splash screen',
-                caption: 'Game splash screen with start button'
+                caption: 'Game splash screen of final design.'
             },
             {
                 type: 'image',
-                src: flappyImg.src,
-                alt: 'Flappy Bird gameplay screenshot',
-                caption: 'Main gameplay showing bird navigating through pipes'
+                src: idleGif.src,
+                alt: 'Flappy bird idle animation',
+                caption: 'Bird idle animation and intro screen, Loops the Floor and Background to give appearance of movement.'
+            },
+            {
+                type: 'image',
+                src: jumpingGif.src,
+                alt: 'Flappy bird jumping animation',
+                caption: 'Bird jumping mechanics in a simplified environment. with no collisions'
+            },
+            {
+                type: 'image',
+                src: pauseDemoGif.src,
+                alt: 'Flappy bird pause feature demo',
+                caption: 'Pause functionality setting the time scale to 0, allowing the player to take a break without losing progress.'
+            },
+            {
+                type: 'image',
+                src: oldGameGif.src,
+                alt: 'Original Flappy Bird gameplay',
+                caption: 'Low poly version of gameplay, to improve machanics and add more features to the game.'
+            },
+            {
+                type: 'image',
+                src: newBirdImg.src,
+                alt: 'New bird sprite design',
+                caption: 'Updated bird character design'
+            },
+            {
+                type: 'image',
+                src: oldBirdImg.src,
+                alt: 'Original bird sprite design',
+                caption: 'Original bird character design'
             }
         ]}
     />
@@ -54,5 +92,70 @@ const pageTitle = "Flappy Bird Game";
         height="700px"
         id="flappybird-iframe"
     />
+
+    <div class="reflections-section">
+        <div class="reflections-content">
+            <h2 class="reflections-title">
+                <span class="title-highlight">Reflections</span>
+            </h2>
+            <p class="reflections-intro">Reflections were formed after reading <a href="https://unity.com/resources/c-sharp-style-guide-unity-6" target="_blank" rel="noopener noreferrer" class="external-link">C# styling guide</a>.</p>
+            
+            <div class="lessons-grid">
+                <div class="lesson-card">
+                    <div class="lesson-icon">🧹</div>
+                    <h3>Code Organization</h3>
+                    <p>Use of serialized variables to tidy up the inspector. Could use to limit amount of variables showing up in the inspector.</p>
+                </div>
+                
+                <div class="lesson-card">
+                    <div class="lesson-icon">🔧</div>
+                    <h3>Script Structure</h3>
+                    <p>Use of more Scripts to simplify each scripts. By the end of the project i had made multiple scripts that had methods not related to the script name.</p>
+                </div>
+                
+                <div class="lesson-card">
+                    <div class="lesson-icon">⚡</div>
+                    <h3>Method Breakdown</h3>
+                    <p>Always break down code into methods where possible. Began having long sections of code that could have been put in a method to allow the main line of code easier to follow.</p>
+                </div>
+                
+                <div class="lesson-card">
+                    <div class="lesson-icon">🏷️</div>
+                    <h3>Naming Conventions</h3>
+                    <p>Could have used BEM naming convention. Could have better named ui elements to allow easier editing.</p>
+                </div>
+                
+                <div class="lesson-card">
+                    <div class="lesson-icon">🎯</div>
+                    <h3>Architecture Pattern</h3>
+                    <p>Could have avoided making a God Object. One of my scripts ended up being the parent of the others in an attempted to share the gameState variable, which bloated up the inspector. The solution I had was to use Static on the gameState, so in the end I could have used a dedicated GameManager Script.</p>
+                </div>
+                
+                <div class="lesson-card">
+                    <div class="lesson-icon">💡</div>
+                    <h3>Documentation</h3>
+                    <p>Found out the use of tooltips. Can add better descriptor into the inspector making it easier to see at a glance.</p>
+                </div>
+                
+                <div class="lesson-card">
+                    <div class="lesson-icon">✨</div>
+                    <h3>KISS Principle</h3>
+                    <p>Could have used the KISS principle. Using this would have helped me simplify my methods and scripts, making problem solving easier and future revisions easier.</p>
+                </div>
+            </div>
+            
+            <div class="future-goals">
+                <h3 class="future-title">Future Improvements</h3>
+                <p>If I was to revisit this project I would Refactor my code, making it easier to read and edit in the future following the principles I've learned and would also stick to a standard format for my code.</p>
+            </div>
+        </div>
+    </div>
+
+        
+    <div class="description-link">
+        <a href="https://app.affine.pro/workspace/2f1c57ac-8335-4413-94e5-a5c9f37dd436/URrbqAi45Qc2hUVTm91WE" target="_blank" rel="noopener noreferrer">
+            View Dev Diary on Affine →
+        </a>
+    </div>
 </BaseLayout>
 
