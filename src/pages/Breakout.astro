@@ -1,0 +1,58 @@
+---
+import BaseLayout from '../layouts/baseLayout.astro';
+import Hero from '../components/Hero/Hero.astro';
+import Description from '../components/Hero/Description.astro';
+import ProjectDemo from '../components/projects/projectDemo.astro';
+import IframeComponent from '../components/projects/iframme.astro';
+
+// Import project images
+import BreakoutImg from '../assets/Projects/BreakOut/BrickBreaker.png';
+import BreakoutSplashImg from '../assets/Projects/BreakOut/BreakOutSplash.png';
+
+const pageTitle = "Breakout Game";
+---
+<BaseLayout pageTitle={pageTitle} backgroundVariant="game">
+    <Hero 
+        title="Breakout Game"
+        subtitle="A classic arcade-style game recreated with modern web technologies"
+        showImage={true}
+        image={BreakoutImg.src}
+        altText="Breakout gameplay screenshot"
+    />
+    <Description 
+        description="This is a simple implementation of the breakout game using HTML, CSS, and JavaScript. The game features basic mechanics where the player controls a bird that must navigate through pipes by tapping the screen or pressing space to flap its wings."
+        showSkills={true}
+        skillsTitle="Technologies Used"
+        skills={["HTML5", "CSS3", "JavaScript", "Canvas API", "Game Physics", "Event Handling"]}
+        id="about"
+    />
+    <ProjectDemo 
+        id="projects"
+        projectTitle='Breakout Game'
+        githubUrl="https://github.com/Ghosthi1/FlappyBird"
+        itchUrl="https://ghosthi.itch.io/flappybird-clone"
+        media={[
+            {
+                type: 'image',
+                src: BreakoutSplashImg.src,
+                alt: 'Breakout game splash screen',
+                caption: 'Game splash screen with start button'
+            },
+            {
+                type: 'image',
+                src: BreakoutImg.src,
+                alt: 'Breakout gameplay screenshot',
+                caption: 'Main gameplay showing bird navigating through pipes'
+            }
+        ]}
+    />
+    <IframeComponent 
+        embedUrl="https://itch.io/embed-upload/13661159?color=333333"
+        fallbackUrl="https://ghosthi.itch.io/breakout"
+        title="Breakout Game"
+        width="100%"
+        height="700px"
+        id="Breakout-iframe"
+    />
+</BaseLayout>
+
