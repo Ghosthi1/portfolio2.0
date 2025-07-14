@@ -1,0 +1,48 @@
+---
+import BaseLayout from '../layouts/baseLayout.astro';
+import Hero from '../components/Hero/Hero.astro';
+import Description from '../components/Hero/Description.astro';
+import ProjectDemo from '../components/projects/projectDemo.astro';
+import IframeComponent from '../components/projects/iframme.astro';
+
+// Import project images
+import calculatorIcon from '../assets/Projects/czlculator/icon (1).png';
+import calculatorVideo from '../assets/Projects/czlculator/demo.mp4';
+
+const pageTitle = "Calculator App";
+---
+<BaseLayout pageTitle={pageTitle} backgroundVariant="app">
+    <Hero 
+        title="Calculator App"
+        subtitle="A modern and functional calculator built with web technologies"
+        showImage={true}
+        image={calculatorIcon.src}
+        altText="Calculator app icon"
+    />
+    <Description 
+        description="This is a fully functional calculator application built using HTML, CSS, and JavaScript. The calculator features a clean, modern interface with support for basic arithmetic operations, decimal calculations, and keyboard input support."
+        showSkills={true}
+        skillsTitle="Technologies Used"
+        skills={["HTML5", "CSS3", "JavaScript", "DOM Manipulation", "Event Handling", "Responsive Design"]}
+        id="about"
+    />
+    <ProjectDemo 
+        id="projects"
+        projectTitle='Calculator App'
+        githubUrl="https://github.com/Ghosthi1/Calculator"
+        media={[
+            {
+                type: 'image',
+                src: calculatorIcon.src,
+                alt: 'Calculator app icon',
+                caption: 'Modern calculator interface'
+            },
+            {
+                type: 'video',
+                src: calculatorVideo,
+                alt: 'Calculator demo video',
+                caption: 'Calculator functionality demonstration'
+            }
+        ]}
+    />
+</BaseLayout>

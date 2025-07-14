@@ -1,0 +1,54 @@
+---
+import BaseLayout from '../layouts/baseLayout.astro';
+import Hero from '../components/Hero/Hero.astro';
+import Description from '../components/Hero/Description.astro';
+import ProjectDemo from '../components/projects/projectDemo.astro';
+
+// Import project assets
+import blenderLogo from '../assets/Projects/Blender/blender_logo_kit/blender_logo.png';
+import donutsVideo from '../assets/Projects/Blender/Donuts.mp4';
+import riggingVideo from '../assets/Projects/Blender/Rigging.mp4';
+import waterGlassVideo from '../assets/Projects/Blender/WaterGlass.mp4';
+
+const pageTitle = "Blender 3D Portfolio";
+---
+<BaseLayout pageTitle={pageTitle} backgroundVariant="creative">
+    <Hero 
+        title="Blender 3D Portfolio"
+        subtitle="3D modeling, animation, and rendering projects created with Blender"
+        showImage={true}
+        image={blenderLogo.src}
+        altText="Blender logo"
+    />
+    <Description 
+        description="This portfolio showcases various 3D projects created using Blender, including modeling, texturing, rigging, and animation. The projects demonstrate skills in 3D design, material creation, lighting, and animation techniques."
+        showSkills={true}
+        skillsTitle="Skills Demonstrated"
+        skills={["3D Modeling", "Texturing", "Lighting", "Animation", "Rigging", "Rendering", "Material Creation"]}
+        id="about"
+    />
+    <ProjectDemo 
+        id="projects"
+        projectTitle='Blender 3D Projects'
+        media={[
+            {
+                type: 'video',
+                src: donutsVideo,
+                alt: 'Blender donut tutorial project',
+                caption: 'Classic Blender donut tutorial with custom variations'
+            },
+            {
+                type: 'video',
+                src: riggingVideo,
+                alt: 'Character rigging demonstration',
+                caption: 'Character rigging and animation showcase'
+            },
+            {
+                type: 'video',
+                src: waterGlassVideo,
+                alt: 'Water glass rendering',
+                caption: 'Photorealistic water glass with advanced materials'
+            }
+        ]}
+    />
+</BaseLayout>

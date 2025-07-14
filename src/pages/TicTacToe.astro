@@ -1,0 +1,50 @@
+---
+import BaseLayout from '../layouts/baseLayout.astro';
+import Hero from '../components/Hero/Hero.astro';
+import Description from '../components/Hero/Description.astro';
+import ProjectDemo from '../components/projects/projectDemo.astro';
+import IframeComponent from '../components/projects/iframme.astro';
+
+// Import project images
+import TicTacToeImg from '../assets/Projects/TickTackToe/TickTackToe.jpg';
+
+const pageTitle = "Tic Tac Toe Game";
+---
+<BaseLayout pageTitle={pageTitle} backgroundVariant="game">
+    <Hero 
+        title="Tic Tac Toe Game"
+        subtitle="A classic strategy game reimplemented with modern web technologies"
+        showImage={true}
+        image={TicTacToeImg.src}
+        altText="Tic Tac Toe gameplay screenshot"
+    />
+    <Description 
+        description="This is a classic implementation of the Tic Tac Toe game using HTML, CSS, and JavaScript. The game features traditional gameplay where two players take turns marking spaces in a 3×3 grid, with the goal of getting three marks in a row."
+        showSkills={true}
+        skillsTitle="Technologies Used"
+        skills={["HTML5", "CSS3", "JavaScript", "DOM Manipulation", "Game Logic", "Event Handling"]}
+        id="about"
+    />
+    <ProjectDemo 
+        id="projects"
+        projectTitle='Tic Tac Toe Game'
+        githubUrl="https://github.com/Ghosthi1/TickTackToe"
+        itchUrl="https://ghosthi.itch.io/ticktacktoe"
+        media={[
+            {
+                type: 'image',
+                src: TicTacToeImg.src,
+                alt: 'Tic Tac Toe gameplay screenshot',
+                caption: 'Classic 3x3 grid gameplay interface'
+            }
+        ]}
+    />
+    <IframeComponent 
+        embedUrl="https://itch.io/embed-upload/13718317?color=333333"
+        fallbackUrl="https://ghosthi.itch.io/ticktacktoe"
+        title="Tic Tac Toe Game"
+        width="100%"
+        height="700px"
+        id="tictactoe-iframe"
+    />
+</BaseLayout>

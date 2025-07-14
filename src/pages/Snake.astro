@@ -1,0 +1,50 @@
+---
+import BaseLayout from '../layouts/baseLayout.astro';
+import Hero from '../components/Hero/Hero.astro';
+import Description from '../components/Hero/Description.astro';
+import ProjectDemo from '../components/projects/projectDemo.astro';
+import IframeComponent from '../components/projects/iframme.astro';
+
+// Import project images
+import SnakeIcon from '../assets/Projects/Snake/icon.png';
+import SnakeVideo from '../assets/Projects/Snake/snake.mp4';
+
+const pageTitle = "Snake Game";
+---
+<BaseLayout pageTitle={pageTitle} backgroundVariant="game">
+    <Hero 
+        title="Snake Game"
+        subtitle="A classic retro game reimplemented with modern web technologies"
+        showImage={true}
+        image={SnakeIcon.src}
+        altText="Snake game icon"
+    />
+    <Description 
+        description="This is a classic implementation of the Snake game using HTML, CSS, and JavaScript. The game features traditional mechanics where the player controls a snake that grows longer as it eats food, while avoiding collisions with walls and its own body."
+        showSkills={true}
+        skillsTitle="Technologies Used"
+        skills={["HTML5", "CSS3", "JavaScript", "Canvas API", "Game Logic", "Collision Detection"]}
+        id="about"
+    />
+    <ProjectDemo 
+        id="projects"
+        projectTitle='Snake Game'
+        githubUrl="https://github.com/Ghosthi1/Snake"
+        itchUrl="https://ghosthi.itch.io/snake-game"
+        media={[
+            {
+                type: 'image',
+                src: SnakeIcon.src,
+                alt: 'Snake game icon',
+                caption: 'Snake game icon'
+            },
+            {
+                type: 'video',
+                src: SnakeVideo,
+                alt: 'Snake gameplay video',
+                caption: 'Snake gameplay demonstration'
+            }
+        ]}
+    />
+</BaseLayout>
+

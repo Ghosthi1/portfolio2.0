@@ -1,0 +1,50 @@
+---
+import BaseLayout from '../layouts/baseLayout.astro';
+import Hero from '../components/Hero/Hero.astro';
+import Description from '../components/Hero/Description.astro';
+import ProjectDemo from '../components/projects/projectDemo.astro';
+import IframeComponent from '../components/projects/iframme.astro';
+
+// Import project images
+import tableTopImg from '../assets/Projects/tabletoptracker/TableTopTracker.jpg';
+
+const pageTitle = "TableTop Tracker";
+---
+<BaseLayout pageTitle={pageTitle} backgroundVariant="app">
+    <Hero 
+        title="TableTop Tracker"
+        subtitle="A comprehensive tool for managing tabletop gaming sessions"
+        showImage={true}
+        image={tableTopImg.src}
+        altText="TableTop Tracker application screenshot"
+    />
+    <Description 
+        description="TableTop Tracker is a web application designed to help tabletop gamers organize and track their gaming sessions, characters, and campaigns. The application provides tools for session planning, character management, and campaign tracking with an intuitive user interface."
+        showSkills={true}
+        skillsTitle="Technologies Used"
+        skills={["HTML5", "CSS3", "JavaScript", "Local Storage", "Responsive Design", "Data Management"]}
+        id="about"
+    />
+    <ProjectDemo 
+        id="projects"
+        projectTitle='TableTop Tracker'
+        githubUrl="https://github.com/Ghosthi1/TableTopTracker"
+        itchUrl="https://ghosthi.itch.io/table-top-tracker"
+        media={[
+            {
+                type: 'image',
+                src: tableTopImg.src,
+                alt: 'TableTop Tracker interface',
+                caption: 'Main dashboard for tracking gaming sessions'
+            }
+        ]}
+    />
+    <IframeComponent 
+        embedUrl="https://itch.io/embed-upload/12859475?color=333333"
+        fallbackUrl="https://ghosthi.itch.io/table-top-tracker"
+        title="TableTop Tracker"
+        width="100%"
+        height="700px"
+        id="tabletop-iframe"
+    />
+</BaseLayout>
