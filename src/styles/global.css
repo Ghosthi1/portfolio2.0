@@ -1801,7 +1801,7 @@ footer:hover {
         0 20px 40px rgba(0, 0, 0, 0.25),
         0 8px 16px rgba(40, 167, 69, 0.12),
         inset 0 1px 0 rgba(255, 255, 255, 0.15);
-    max-width: 85%;
+    max-width: 90%;
     margin: 3rem auto;
     position: relative;
     overflow: hidden;
@@ -1849,7 +1849,6 @@ footer:hover {
     display: block;
     visibility: visible;
 }
-
 
 /* Ensure spans are visible */
 .reflections-title span {
@@ -2027,6 +2026,16 @@ footer:hover {
     font-size: 1rem;
     margin: 0;
 }
+@media (min-width: 1440px) {
+    .reflections-section {
+        max-width: 80%;
+    }
+}
+@media (min-width: 1024px) and (max-width: 1439px) {
+    .reflections-section {
+        max-width: 85%;
+    }
+}
 
 @media (max-width: 768px) {
     .reflections-content {
@@ -2048,6 +2057,9 @@ footer:hover {
     
     .future-goals {
         padding: 1.5rem;
+    }
+    .reflections-section{
+        width: 90%;
     }
 }
 
