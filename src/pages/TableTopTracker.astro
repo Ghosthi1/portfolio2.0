@@ -4,11 +4,52 @@ import Hero from '../components/Hero/Hero.astro';
 import Description from '../components/Hero/Description.astro';
 import ProjectDemo from '../components/projects/projectDemo.astro';
 import IframeComponent from '../components/projects/iframme.astro';
+import ChallengesSection from '../components/projects/challengesSection.astro';
+import ReflectionsSection from '../components/projects/reflectionsSection.astro';
+import DevDiary from '../components/projects/devDiary.astro';
 
 // Import project images
 import tableTopImg from '../assets/Projects/tabletoptracker/TableTopTracker.jpg';
 
 const pageTitle = "TableTop Tracker";
+
+// Define challenges data
+const challenges = [
+    {
+        icon: "⚽",
+        title:  "Ball would end up stuck in a bounce pattern",
+        description: "While the ball was bouncing off the paddle I originally had it invert to bounce off the paddle, but this caused the ball to get stuck in a bounce pattern. I had to change the code so that it would add a random angle to the ball when it hits the paddle to prevent this."
+    },
+    {
+        icon: "🔍",
+        title: "No limit on text size for leaderboard or amount of players",
+        description: "The leaderboard would not limit the text size for the player names or the amount of players that could be added to it. I had to add a limit to the text size and amount of players that could be added to the leaderboard. I did this by using a max length for the input field and a max amount of players that could be added to the leaderboard json."
+    }
+];
+
+// Define lessons/reflections data  
+const lessons = [
+    {
+        icon: "🧹",
+        title: "Better commenting",
+        description: "Could have improved code comments for clarity and future reference. Especially on scripts that are reusable in other projects, like the SaveData script."
+    },
+    {
+        icon: "💥",
+        title: "Powerup Feedback",
+        description: "Adding animation and sound to provide more feedback to player on powerup pickup to indicate time left and draw attention to the pickup."
+    },
+    {
+        icon: "🎯",
+        title: "Scope Management",
+        description: "Suffered from some scope creep, adding hats and probably even the character was unnecessary. So keep to the KISS principle and keep to the planned scope of the project."
+    },
+    {
+        icon: "🎨",
+        title: "Time Management",
+        description: "Spent too much time on the art and not enough on the gameplay. I should have focused more on the core mechanics and less on the character."
+    }
+];
 ---
 <BaseLayout pageTitle={pageTitle} backgroundVariant="app">
     <Hero 
@@ -47,4 +88,12 @@ const pageTitle = "TableTop Tracker";
         height="700px"
         id="tabletop-iframe"
     />
+    <ChallengesSection challenges={challenges} />
+
+    <ReflectionsSection 
+        lessons={lessons}
+        futureGoals='If i was to revisit this project, I would improve the feedback when a powerup is collected by adding visual effects and sound cues. I would also spend more time on the background image to make it more appealing. Additionally, I would implement a scoring system that tracks the player’s score and displays it on the screen, enhancing the competitive aspect of the game.'
+    />
+
+    <DevDiary url="https://app.affine.pro/workspace/2f1c57ac-8335-4413-94e5-a5c9f37dd436/P8xeMti_GI" />
 </BaseLayout>

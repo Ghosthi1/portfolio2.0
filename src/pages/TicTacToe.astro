@@ -4,25 +4,78 @@ import Hero from '../components/Hero/Hero.astro';
 import Description from '../components/Hero/Description.astro';
 import ProjectDemo from '../components/projects/projectDemo.astro';
 import IframeComponent from '../components/projects/iframme.astro';
+import ChallengesSection from '../components/projects/challengesSection.astro';
+import ReflectionsSection from '../components/projects/reflectionsSection.astro';
+import DevDiary from '../components/projects/devDiary.astro';
 
 // Import project images
 import TicTacToeImg from '../assets/Projects/TickTackToe/TickTackToe.jpg';
+import TicTacToeScreenshot from '../assets/Projects/TickTackToe/Screenshot 2025-07-21 103623.png';
+import TicTacToeVideo from '../assets/Projects/TickTackToe/Screen Recording 2025-07-21 103708.mp4';
 
 const pageTitle = "Tic Tac Toe Game";
+
+// Define challenges data
+const challenges = [
+    {
+        icon: "🤖",
+        title:  "Hard coded AI moves",
+        description: "My first iterations of opponent AI's, the Offense, defense and hybrid AI were hard coded to make specific moves. This made them predictable and easy to beat. After some research into AI algorithms, I decided to implement a MinMax algorithm with game tree traversal to make the AI more challenging and unpredictable."
+    },
+    {
+        icon: "⌨️",
+        title: "Navigating the Board",
+        description: "I didnt want to use buttons for each square so that i could use bigger boards if i wanted to, so i went with arrowkey movement. This required implementing a system to track the current position on the board and update it based on player input, ensuring smooth navigation across the grid."
+    },
+    {
+        icon: "🔄",
+        title: "Recursive Algorithm Complexity",
+        description: "Implementing the MinMax algorithm required understanding recursion and game tree traversal. Debugging recursive functions was challenging, especially ensuring the algorithm correctly evaluated all possible game states and returned the optimal move for the AI."
+    }
+];
+
+// Define lessons/reflections data  
+const lessons = [
+    {
+        icon: "🏗️",
+        title: "Better code organization",
+        description: "Because I made the Hardcoded AI's first, I had to refactor the code to accommodate the new MinMax AI. This taught me the importance of planning and structuring code for scalability and maintainability from the start."
+    },
+    {
+        icon: "🖱️",
+        title: "Intuitive Interaction",
+        description: "Should have used mouse clicks for selecting squares instead of arrow keys, as it would have been more intuitive for users. This would have made the game more accessible and user-friendly."
+    },
+    {
+        icon: "👥",
+        title: "Feedback on who's turn it is",
+        description: "Implementing a visual indicator for the current player's turn would enhance the user experience and make the game more intuitive."
+    },
+    {
+        icon: "🎨",
+        title: "More Appealing UI",
+        description: "Improving the visual design and aesthetics of the game interface would enhance the overall user experience and make the game more engaging."
+    },
+    {
+        icon: "🌐",
+        title: "Platform Compatibility",
+        description: "Learning about WebGL builds and the differences between desktop and web versions. The web version has some issues with AI initialization that don't occur in the desktop build."
+    }
+];
 ---
 <BaseLayout pageTitle={pageTitle} backgroundVariant="game">
     <Hero 
         title="Tic Tac Toe Game"
-        subtitle="A classic strategy game reimplemented with modern web technologies"
+        subtitle="A classic strategy game reimplemented with Unity with MinMax AI"
         showImage={true}
         image={TicTacToeImg.src}
         altText="Tic Tac Toe gameplay screenshot"
     />
     <Description 
-        description="This is a classic implementation of the Tic Tac Toe game using HTML, CSS, and JavaScript. The game features traditional gameplay where two players take turns marking spaces in a 3×3 grid, with the goal of getting three marks in a row."
+        description="This is a classic implementation of the Tic Tac Toe game built with Unity and C#. The game features traditional gameplay where two players take turns marking spaces in a 3×3 grid, with the goal of getting three marks in a row. The AI opponent can use multiple different strategies, including the MinMax algorithm with game tree traversal, to make optimal moves, creating a challenging and strategic gaming experience."
         showSkills={true}
         skillsTitle="Technologies Used"
-        skills={["HTML5", "CSS3", "JavaScript", "DOM Manipulation", "Game Logic", "Event Handling"]}
+        skills={["Unity", "C#", "MinMax AI", "OOP Design", "Problem solving", "Game tree traversal", "Heuristic evaluation", "Recursion"]}
         id="about"
     />
     <ProjectDemo 
@@ -32,10 +85,22 @@ const pageTitle = "Tic Tac Toe Game";
         itchUrl="https://ghosthi.itch.io/ticktacktoe"
         media={[
             {
+                type: 'video',
+                src: TicTacToeVideo,
+                alt: 'Tic Tac Toe gameplay video',
+                caption: 'Live gameplay demonstration with MinMax AI'
+            },
+            {
                 type: 'image',
                 src: TicTacToeImg.src,
                 alt: 'Tic Tac Toe gameplay screenshot',
                 caption: 'Classic 3x3 grid gameplay interface'
+            },
+            {
+                type: 'image',
+                src: TicTacToeScreenshot.src,
+                alt: 'Tic Tac Toe game screenshot',
+                caption: 'Game interface'
             }
         ]}
     />
@@ -47,4 +112,17 @@ const pageTitle = "Tic Tac Toe Game";
         height="700px"
         id="tictactoe-iframe"
     />
+    
+    <div class="description">
+        <p>There is a issue with the website version not loading the Ai's moves on the first game</p>
+    </div>
+
+    <ChallengesSection challenges={challenges} />
+
+    <ReflectionsSection 
+        lessons={lessons}
+        futureGoals='In the future, I would like to add more features such as multiplayer support, a more advanced AI with different difficulty levels and diffrent grid sizes, and a more polished user interface.'
+    />
+
+    <DevDiary url="https://app.affine.pro/workspace/2f1c57ac-8335-4413-94e5-a5c9f37dd436/z7GDieH4gF" />
 </BaseLayout>
