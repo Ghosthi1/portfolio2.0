@@ -12,22 +12,22 @@ import emailIcon from "../../assets/email-9-svgrepo-com.svg";
 
 <!-- Nav links -->
 <nav class="nav-links">
-    <a href="/">Home</a>
-    <a href="#about">Description</a>
-    <a href="#projects">Projects</a>
+    <a href="/" aria-label="Go to Home page">Home</a>
+    <a href="#about" aria-label="Go to Description section">Description</a>
+    <a href="#projects" aria-label="Go to Projects section">Projects</a>
 
     <div class="nav-footer">
         <a href="https://www.linkedin.com/in/callum-forsyth-26a5011b2" class="social-icon">
-            <img src={linkedin.src} loading="lazy" alt="LinkedIn logo" />
+            <img src={linkedin.src} loading="eager" alt="LinkedIn logo" aria-label="LinkedIn profile" />
         </a>
         <a href="https://github.com/Ghosthi1" class="social-icon">
-            <img src={Github.src} loading="lazy" alt="Github logo" />
+            <img src={Github.src} loading="eager" alt="Github logo" aria-label="GitHub profile" />
         </a>
         <a href="https://ghosthi.itch.io" class="social-icon">
-            <img src={itchIcon.src} loading="lazy" alt="itch.io logo" />
+            <img src={itchIcon.src} loading="eager" alt="itch.io logo" aria-label="itch.io profile" />
         </a>
         <a href="mailto:c-forsyth02@sky.com" class="social-icon">
-            <img src={emailIcon.src} loading="lazy" alt="Email logo" />
+            <img src={emailIcon.src} loading="eager" alt="Email logo" aria-label="Send email" />
         </a>
     </div>
 </nav>

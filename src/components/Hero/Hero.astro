@@ -1,5 +1,6 @@
 ---
 import Me from "../../assets/me.jpg";
+import { Image } from "astro:assets";
 
 export interface Props {
     title?: string;
@@ -19,7 +20,7 @@ const {
 ---
 <div class ="hero">
     <div class ="hero-content">
-        {showImage && <img src={image} alt={altText} class="hero-image" />}
+        {showImage && <Image src={Me} alt={altText} class="hero-image" loading="eager" />}
         <h1 class="hero-title">{title}</h1>
     </div>
     <p class="text">{subtitle}</p>
