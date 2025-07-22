@@ -8,12 +8,21 @@ export interface Props {
 }
 
 const { 
-    description = "Explore my projects, skills, and experiences. This is a very long piece of text used for testing the hero section of my portfolio. I hope it looks good and works well on all devices. If you have any feedback, please let me know! Explore my projects, skills, and experiences. This is a very long piece of text used for testing the hero section of my portfolio. I hope it looks good and works well on all devices. If you have any feedback, please let me know! Explore my projects, skills, and experiences. This is a very long piece of text used for testing the hero section of my portfolio. I hope it looks good and works well on all devices. If you have any feedback, please let me know! Explore my projects, skills, and experiences. This is a very long piece of text used for testing the hero section of my portfolio. I hope it looks good and works well on all devices. If you have any feedback, please let me know! Explore my projects, skills, and experiences. This is a very long piece of text used for testing the hero section of my portfolio. I hope it looks good and works well on all devices. If you have any feedback, please let me know! Explore my projects, skills, and experiences. This is a very long piece of text used for testing the hero section of my portfolio. I hope it looks good and works well on all devices. If you have any feedback, please let me know!",
+    description = `I am a computer science and cybersecurity student entering my final year, passionate about game development and creative technology. 
+    Through personal projects, I have gained experience with C#, Unity, and web development using Astro—the framework powering this portfolio. 
+    My interest in cybersecurity has led me to hands-on learning through platforms like TryHackMe. 
+    Additionally, I enjoy asset creation, using Blender and GIMP to design and produce custom visuals for my projects.`,
     showSkills = true,
-    skills = ["Item 1", "Item 2", "Item 3", "Item 4", "Item 5", "Item 6", "Item 7", "Item 8", "Item 9"],
+    skills = [
+        "C#", "Parsing", "UI Design","Unity", "Pixel art", "JSON Serialization", "MinMax AI", "Game tree traversal", 
+        "Python","Game Loop Architecture", "State management",
+        "3D Modeling", "Rigging", "Rendering", "Fluid Simulation",
+        "2D modeling"
+    ],
     skillsTitle = "Skills at a glance",
     id = "about"
 } = Astro.props;
+
 ---
 <div class="description" id={id}>
     <div class="text">
