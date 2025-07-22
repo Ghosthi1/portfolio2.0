@@ -10,60 +10,73 @@ import DevDiary from '../components/projects/devDiary.astro';
 
 // Import project images
 import tableTopImg from '../assets/Projects/tabletoptracker/TableTopTracker.jpg';
+import tableTopScreenshot1 from '../assets/Projects/tabletoptracker/Screenshot 2025-07-22 092027.png';
+import tableTopScreenshot2 from '../assets/Projects/tabletoptracker/Screenshot 2025-07-22 092138.png';
+import tableTopVideo from '../assets/Projects/tabletoptracker/Screen Recording 2025-07-22 092300.mp4';
 
 const pageTitle = "TableTop Tracker";
 
 // Define challenges data
 const challenges = [
     {
-        icon: "⚽",
-        title:  "Ball would end up stuck in a bounce pattern",
-        description: "While the ball was bouncing off the paddle I originally had it invert to bounce off the paddle, but this caused the ball to get stuck in a bounce pattern. I had to change the code so that it would add a random angle to the ball when it hits the paddle to prevent this."
+        icon: "💾",
+        title:  "Player prefs issues",
+        description: "I struggled to get the names to save correctly using PlayerPrefs. Hence they would not display correctly on the main page. I had to debug the PlayerPrefs to ensure it was saving and loading the names correctly."
     },
     {
-        icon: "🔍",
-        title: "No limit on text size for leaderboard or amount of players",
-        description: "The leaderboard would not limit the text size for the player names or the amount of players that could be added to it. I had to add a limit to the text size and amount of players that could be added to the leaderboard. I did this by using a max length for the input field and a max amount of players that could be added to the leaderboard json."
+        icon: "⚖️",
+        title: "Game Rules Implementation",
+        description: "I had to implement a system to enforce the game rules, such as turn counter and score maximums and implement ways to prevent players going above or below these limits."
     }
 ];
 
 // Define lessons/reflections data  
 const lessons = [
     {
-        icon: "🧹",
-        title: "Better commenting",
-        description: "Could have improved code comments for clarity and future reference. Especially on scripts that are reusable in other projects, like the SaveData script."
+        icon: "🛠️",
+        title: "Appropriate language use",
+        description: "Using unity is what i was most comfortable with, but I could have used other languages or frameworks to achieve the same result. I should have considered using Flutter(Dart) or a C# Framework for a more robust solution."
     },
     {
-        icon: "💥",
-        title: "Powerup Feedback",
-        description: "Adding animation and sound to provide more feedback to player on powerup pickup to indicate time left and draw attention to the pickup."
+        icon: "📋",
+        title: "A Proper Plan",
+        description: "I should have created a more detailed plan and requirements before starting the project. This would have helped me to stay on track and avoid scope creep and would allow me to add more game rules and features as it proggressed."
     },
     {
-        icon: "🎯",
-        title: "Scope Management",
-        description: "Suffered from some scope creep, adding hats and probably even the character was unnecessary. So keep to the KISS principle and keep to the planned scope of the project."
+        icon: "🖌️",
+        title: "User Experience Design",
+        description: "The interface could have been more intuitive with better visual feedback. Adding clear indicators for turn progression, score limits, and input validation would greatly improve the user experience."
     },
     {
-        icon: "🎨",
-        title: "Time Management",
-        description: "Spent too much time on the art and not enough on the gameplay. I should have focused more on the core mechanics and less on the character."
+        icon: "🏗️",
+        title: "Code Architecture",
+        description: "Implementing a more modular architecture with separate classes for game rules, player management, and UI would have made the code more maintainable and easier to extend with new features. As my current script is a bit of a monolith and could be broken down into smaller, more manageable components."
+    },
+    {
+        icon: "💽 ",
+        title: "Data Persistence Strategy",
+        description: "Using PlayerPrefs was a quick solution, but implementing a more robust data persistence system (JSON files) would have provided better data management and backup capabilities."
+    },
+    {
+        icon: "🔬",
+        title: "Testing and Validation",
+        description: "I should have implemented more comprehensive testing, especially for edge cases like maximum scores, turn limits, and invalid inputs to ensure the application behaves correctly in all scenarios."
     }
 ];
 ---
 <BaseLayout pageTitle={pageTitle} backgroundVariant="app">
     <Hero 
         title="TableTop Tracker"
-        subtitle="A comprehensive tool for managing tabletop gaming sessions"
+        subtitle="A Unity app to track scores in tabletop games"
         showImage={true}
         image={tableTopImg.src}
         altText="TableTop Tracker application screenshot"
     />
     <Description 
-        description="TableTop Tracker is a web application designed to help tabletop gamers organize and track their gaming sessions, characters, and campaigns. The application provides tools for session planning, character management, and campaign tracking with an intuitive user interface."
+        description="TableTop Tracker is a Unity application designed for Warhammer 40k to help tabletop gamers organize and track their gaming sessions."
         showSkills={true}
         skillsTitle="Technologies Used"
-        skills={["HTML5", "CSS3", "JavaScript", "Local Storage", "Responsive Design", "Data Management"]}
+        skills={["Unity", "C#", "Unity UI Toolkit", "User Interface Design", "Score Tracking Systems", "Event-Driven Programming", "Player Prefs"]}
         id="about"
     />
     <ProjectDemo 
@@ -73,10 +86,28 @@ const lessons = [
         itchUrl="https://ghosthi.itch.io/table-top-tracker"
         media={[
             {
+                type: 'video',
+                src: tableTopVideo,
+                alt: 'TableTop Tracker gameplay demonstration',
+                caption: 'Demonstration showing core features'
+            },
+            {
                 type: 'image',
                 src: tableTopImg.src,
                 alt: 'TableTop Tracker interface',
-                caption: 'Main dashboard for tracking gaming sessions'
+                caption: 'Logo for the application'
+            },
+            {
+                type: 'image',
+                src: tableTopScreenshot1.src,
+                alt: 'TableTop Tracker screenshot 1',
+                caption: 'Name input page'
+            },
+            {
+                type: 'image',
+                src: tableTopScreenshot2.src,
+                alt: 'TableTop Tracker screenshot 2', 
+                caption: 'Main page showing score tracking'
             }
         ]}
     />
@@ -92,8 +123,7 @@ const lessons = [
 
     <ReflectionsSection 
         lessons={lessons}
-        futureGoals='If i was to revisit this project, I would improve the feedback when a powerup is collected by adding visual effects and sound cues. I would also spend more time on the background image to make it more appealing. Additionally, I would implement a scoring system that tracks the player’s score and displays it on the screen, enhancing the competitive aspect of the game.'
+        futureGoals='If I was to revisit this project, I would rebuild it from the ground up using a more robust framework like Flutter or a C# desktop framework to allow for better cross-platform deployment. Key improvements would include: implementing persistent data storage; designing a more intuitive UI; adding support for multiple game types beyond Warhammer 40k with customizable rule sets; integrating syncing so each user can have their own instance; '
     />
 
-    <DevDiary url="https://app.affine.pro/workspace/2f1c57ac-8335-4413-94e5-a5c9f37dd436/P8xeMti_GI" />
 </BaseLayout>
