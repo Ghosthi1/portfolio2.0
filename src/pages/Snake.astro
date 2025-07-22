@@ -3,48 +3,83 @@ import BaseLayout from '../layouts/baseLayout.astro';
 import Hero from '../components/Hero/Hero.astro';
 import Description from '../components/Hero/Description.astro';
 import ProjectDemo from '../components/projects/projectDemo.astro';
-import IframeComponent from '../components/projects/iframme.astro';
+import ChallengesSection from '../components/projects/challengesSection.astro';
+import ReflectionsSection from '../components/projects/reflectionsSection.astro';
+import DevDiary from '../components/projects/devDiary.astro';
 
 // Import project images
 import SnakeIcon from '../assets/Projects/Snake/icon.png';
 import SnakeVideo from '../assets/Projects/Snake/snake.mp4';
 
 const pageTitle = "Snake Game";
+// Define challenges data
+const challenges = [
+    {
+        icon: "⚽",
+        title:  "Visual update of snake position",
+        description: "I struggled to draw the snake in the correct position on the grid whenever changing directions. I updated the way the snake changed direction to a vector this made it easier to calculate the position of the snake on the grid.I then removed the last item in the snake array to tidy up the tail. This allowed me to draw the snake in the correct position on the grid and give the impression of movement."
+    },
+    {
+        icon: "🔍",
+        title: "Needs install to run",
+        description: "The game requires Python and Pygame to be installed to run. I should have provided a more detailed README with installation instructions and dependencies."
+    }
+];
+
+// Define lessons/reflections data  
+const lessons = [
+    {
+        icon: "🧹",
+        title: "Better Documentation",
+        description: "Could have made more detailed Requirements and comments to help future developers understand the code better. This would have made it easier to maintain and extend the project in the future."
+    },
+    {
+        icon: "💥",
+        title: "Border loop not neccessary",
+        description: "Alowing the snake to collide with a border instead of having a loop would have made the game more challenging and fun. I should have implemented this feature to enhance gameplay."
+    }
+];
 ---
 <BaseLayout pageTitle={pageTitle} backgroundVariant="game">
     <Hero 
         title="Snake Game"
-        subtitle="A classic retro game reimplemented with modern web technologies"
+        subtitle="A classic retro game reimplemented made in pygame"
         showImage={true}
         image={SnakeIcon.src}
         altText="Snake game icon"
     />
     <Description 
-        description="This is a classic implementation of the Snake game using HTML, CSS, and JavaScript. The game features traditional mechanics where the player controls a snake that grows longer as it eats food, while avoiding collisions with walls and its own body."
+        description="This is a classic implementation of the Snake game built with Python and Pygame, utilizing object-oriented programming principles. The game features a grid-based coordinate system with precise collision detection mechanics. Players control a snake that grows as it consumes food while avoiding self-collision. The implementation showcases proper game loop architecture, real-time state management."
         showSkills={true}
         skillsTitle="Technologies Used"
-        skills={["HTML5", "CSS3", "JavaScript", "Canvas API", "Game Logic", "Collision Detection"]}
+        skills={["Python", "Pygame", "OOP", "Grid Maths", "Graphics programming", "Collision Detection","coordinate systems", "Game Loop Architecture","State management"]}
         id="about"
     />
     <ProjectDemo 
         id="projects"
         projectTitle='Snake Game'
         githubUrl="https://github.com/Ghosthi1/Snake"
-        itchUrl="https://ghosthi.itch.io/snake-game"
         media={[
-            {
-                type: 'image',
-                src: SnakeIcon.src,
-                alt: 'Snake game icon',
-                caption: 'Snake game icon'
-            },
             {
                 type: 'video',
                 src: SnakeVideo,
                 alt: 'Snake gameplay video',
                 caption: 'Snake gameplay demonstration'
+            },
+            {
+                type: 'image',
+                src: SnakeIcon.src,
+                alt: 'Snake game icon',
+                caption: 'Snake game icon'
             }
         ]}
     />
+    <ChallengesSection challenges={challenges} />
+
+    <ReflectionsSection 
+        lessons={lessons}
+        futureGoals='Could have added additional difficulty using speed levels of the snake, I would also of added data persistence to allow for a leaderboard'
+    />
+
 </BaseLayout>
 
