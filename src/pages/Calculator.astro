@@ -3,27 +3,50 @@ import BaseLayout from '../layouts/baseLayout.astro';
 import Hero from '../components/Hero/Hero.astro';
 import Description from '../components/Hero/Description.astro';
 import ProjectDemo from '../components/projects/projectDemo.astro';
-import IframeComponent from '../components/projects/iframme.astro';
+import ChallengesSection from '../components/projects/challengesSection.astro';
+import ReflectionsSection from '../components/projects/reflectionsSection.astro';
 
 // Import project images
 import calculatorIcon from '../assets/Projects/czlculator/icon (1).png';
 import calculatorVideo from '../assets/Projects/czlculator/demo.mp4';
 
 const pageTitle = "Calculator App";
+// Define challenges data
+const challenges = [
+    {
+        icon: "🧩",
+        title:  "Difficulties debugging the recursive parsing",
+        description: "I had a hard time figuring out why my recursive parsing function wasn't working in the correct order using BODMAS. I had to go through and add increadible detailed comments to the code to figure out what was going wrong. I also had to use console.log statements to debug the code and figure out what was going wrong."
+    }
+];
+
+// Define lessons/reflections data  
+const lessons = [
+    {
+        icon: "🔍",
+        title: "More research on parsing",
+        description: "I should have spent more time researching parsing techniques and best practices. This would have helped me implement a more robust and flexible parsing system."
+    },
+    {
+        icon: "✨", 
+        title: "Could have added more features",
+        description: "I could have implemented additional features such as scientific calculations, history tracking, and customizable themes to enhance the user experience."
+    }
+];
 ---
 <BaseLayout pageTitle={pageTitle} backgroundVariant="app">
     <Hero 
         title="Calculator App"
-        subtitle="A modern and functional calculator built with web technologies"
+        subtitle="A modern and functional calculator built with .net framework"
         showImage={true}
         image={calculatorIcon.src}
         altText="Calculator app icon"
     />
     <Description 
-        description="This is a fully functional calculator application built using HTML, CSS, and JavaScript. The calculator features a clean, modern interface with support for basic arithmetic operations, decimal calculations, and keyboard input support."
+        description="This is a fully functional calculator application built using C# and the .NET framework. The calculator features a clean, modern interface with support for basic arithmetic operations, decimal calculations, and robust event handling for user interactions."
         showSkills={true}
         skillsTitle="Technologies Used"
-        skills={["HTML5", "CSS3", "JavaScript", "DOM Manipulation", "Event Handling", "Responsive Design"]}
+        skills={["C#", ".net framework", "Parsing", "UI Design", "Event Handling", "Responsive Design"]}
         id="about"
     />
     <ProjectDemo 
@@ -32,17 +55,23 @@ const pageTitle = "Calculator App";
         githubUrl="https://github.com/Ghosthi1/Calculator"
         media={[
             {
-                type: 'image',
-                src: calculatorIcon.src,
-                alt: 'Calculator app icon',
-                caption: 'Modern calculator interface'
-            },
-            {
                 type: 'video',
                 src: calculatorVideo,
                 alt: 'Calculator demo video',
                 caption: 'Calculator functionality demonstration'
+            },
+            {
+                type: 'image',
+                src: calculatorIcon.src,
+                alt: 'Calculator app icon',
+                caption: 'Modern calculator interface'
             }
         ]}
+    />
+    <ChallengesSection challenges={challenges} />
+
+    <ReflectionsSection 
+        lessons={lessons}
+        futureGoals='In the future, I would like to implement more advanced features such as scientific calculations, history tracking, and customizable themes to enhance the user experience. I would also like to explore different parsing techniques and best practices to improve the robustness and flexibility of the parsing system.'
     />
 </BaseLayout>

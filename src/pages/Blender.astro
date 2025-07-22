@@ -3,6 +3,8 @@ import BaseLayout from '../layouts/baseLayout.astro';
 import Hero from '../components/Hero/Hero.astro';
 import Description from '../components/Hero/Description.astro';
 import ProjectDemo from '../components/projects/projectDemo.astro';
+import ChallengesSection from '../components/projects/challengesSection.astro';
+import ReflectionsSection from '../components/projects/reflectionsSection.astro';
 
 // Import project assets
 import blenderLogo from '../assets/Projects/Blender/blender_logo_kit/square/blender_icon_1024x1024.png';
@@ -11,6 +13,28 @@ import riggingVideo from '../assets/Projects/Blender/Rigging.mp4';
 import waterGlassVideo from '../assets/Projects/Blender/WaterGlass.mp4';
 
 const pageTitle = "Blender Projects";
+// Define challenges data
+const challenges = [
+    {
+        icon: "⚽",
+        title:  "Time Consuming rendering process",
+        description: "The rendering process in Blender can be very time-consuming, especially for fluid simulation. I had to optimize my scenes and use lower resolution textures for faster rendering times."
+    },
+    {
+        icon: "🔍",
+        title: "Fine detail rigging",
+        description: "Creating the joints on the characters hand was challenging due to the need for precise placement and the fiddliness of the animation."
+    }
+];
+
+// Define lessons/reflections data  
+const lessons = [
+    {
+        icon: "🧹",
+        title: "Explored more during tutorials",
+        description: "I took the time to explore more advanced techniques during tutorials, which helped me gain a deeper understanding of Blender's capabilities."
+    }
+];
 ---
 <BaseLayout pageTitle={pageTitle} backgroundVariant="creative">
     <Hero 
@@ -53,4 +77,10 @@ const pageTitle = "Blender Projects";
             }
         ]}
     />
+    <ChallengesSection challenges={challenges} />
+
+    <ReflectionsSection 
+        lessons={lessons}
+    />
+
 </BaseLayout>
