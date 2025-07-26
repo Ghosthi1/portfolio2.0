@@ -1,0 +1,153 @@
+---
+import BaseLayout from '../layouts/baseLayout.astro';
+import Hero from '../components/Hero/Hero.astro';
+import Description from '../components/Hero/Description.astro';
+import ProjectDemo from '../components/projects/projectDemo.astro';
+import IframeComponent from '../components/projects/iframme.astro';
+import ChallengesSection from '../components/projects/challengesSection.astro';
+import ReflectionsSection from '../components/projects/reflectionsSection.astro';
+import DevDiary from '../components/projects/devDiary.astro';
+
+// Import project images
+import BreakoutImg from '../assets/Projects/BreakOut/BrickBreaker.png';
+import BreakoutSplashImg from '../assets/Projects/BreakOut/BreakOutSplash.png';
+import NormalImg from '../assets/Projects/BreakOut/normal.png';
+import PersonImg from '../assets/Projects/BreakOut/person.png';
+import StrongImg from '../assets/Projects/BreakOut/strong.png';
+
+
+const pageTitle = "Platformer Game";
+// Define challenges data
+const challenges = [
+    {
+        icon: "🧠",
+        title:  "A* pathfinding performance",
+        description: "The A* pathfinding algorithm was causing performance issues when there were too many enemies on screen. I had to optimize the algorithm by switching to a heap rather than individual lists for open and closed nodes, which significantly improved performance. This increased my performance reducing stuttering."
+    },
+    {
+        icon: " 🐻",
+        title: "Getting Bear to change heights",
+        description: "Could not get the bear to naturally change height without floating using A* apathfinding. So i switched over to node based patrolling to get a smoother motion. This allowed the bear to move between nodes and change height naturally without as much floating."
+    },
+    {
+        icon: " 🗺️",
+        title: "Level design",
+        description: "I struggled with creating engaging and unique levels that focus on diffrent aspects of the game. I had to iterate on the level design multiple times to ensure that each level was fun and challenging. I also had to balance the difficulty of the levels to ensure that they were not too easy or too hard."
+    },
+    {
+        icon: "🎁",
+        title: "Pickups are Collecting when not in range",
+        description: "I never found out why this hapens, after checking collision boxes and changing detection type my fix for this was changing the pickups to a keinematic object"
+    }
+];
+
+// Define lessons/reflections data  
+const lessons = [
+    {
+        icon: "🧩",
+        title: "Breaking down scripts into smaller components",
+        description: "As I progressed through the project, I found my player movement script handled more than it should have like audio and collisions, I should have separated these into smaller scripts to reduce complexity."
+    },
+    {
+        icon: "⬇️",
+        title: "Directional collision direction",
+        description: "I used collision points and height to determine the direction of the collision, I found I over-engineered this as I could have just checked the player's height in relation to the enemy and if it had a downward movement."
+    },
+    {
+        icon: "🤖",
+        title: "State machine for enemy AI",
+        description: "I used a state machine to manage the enemy AI, allowing swaping of behaviours on the fly. This made it easier to add new enemy types and behaviours without having to rewrite the entire AI system."
+    },
+    {
+        icon: "🧭",
+        title: "A* Pathfinding",
+        description: "I implemented this to allow a more dynamic enemy movement system, allowing enemies to navigate around obstacles and chase the player. This made the game more challenging and engaging rather than just having enemies move in a straight line."
+    },
+    {
+        icon: "🧪",
+        title: "Debug Level",
+        description: "I created a debug/intro level where i would introduicce the player to the game mechanics and controls. This allowed me to test the game mechanics and ensure that they were working as intended in a controlled enviroment before adding them to the main game."
+    },
+    {
+        icon: "🗺️",
+        title: "2D tilesmap to create the levels",
+        description: "I used a 2D tilesmap to create the levels, allowing for more efficient level design and easier iteration on level layouts."
+    },
+    {
+        icon: "🕹️",
+        title: "Importance of playtesting",
+        description: "I had friends and family playtest, during which I took notes of struggles and glitches they encountered. This helped me identify areas of the game that needed improvement that I may have missed. From small things like signs that dont do anything to big oversights like lack of audio."
+    }
+];
+---
+<BaseLayout pageTitle={pageTitle} backgroundVariant="game">
+    <Hero 
+        title="Platformer Game"
+        subtitle="A simple platformer game developed in Unity"
+        showImage={true}
+        image={BreakoutImg.src}
+        altText="Breakout gameplay screenshot" 
+    />
+    <Description 
+        description="This is a classic implementation of the Breakout game developed in Unity. The game features traditional brick-breaking mechanics where the player controls a paddle to bounce a ball and destroy bricks. It includes custom character animations, powerup systems, data persistence for leaderboards"
+        showSkills={true}
+        skillsTitle="Technologies Used"
+        skills={["Unity", "C#", "Pixel art", "Sound design", "Game Physics", "JSON Serialization", "Animation design"]}
+        id="about"
+    />
+    <ProjectDemo 
+        id="projects"
+        projectTitle='Breakout Game'
+        githubUrl="https://github.com/Ghosthi1/BreakOut"
+        itchUrl="https://ghosthi.itch.io/breakout"
+        media={[
+            {
+                type: 'image',
+                src: BreakoutSplashImg.src,
+                alt: 'Breakout game splash screen',
+                caption: 'Game splash screen with start button'
+            },
+            {
+                type: 'image',
+                src: BreakoutImg.src,
+                alt: 'Breakout gameplay screenshot',
+                caption: 'Main gameplay showing paddle and bricks'
+            },
+            {
+                type: 'image',
+                src: NormalImg.src,
+                alt: 'Normal brick type',
+                caption: 'Main body and hat layer of character'
+            },
+            {
+                type: 'image',
+                src: PersonImg.src,
+                alt: 'Character/Person in game',
+                caption: 'Game character'
+            },
+            {
+                type: 'image',
+                src: StrongImg.src,
+                alt: 'Strong brick type',
+                caption: 'Is the animation for when ball hits the paddle'
+            }
+        ]}
+    />
+    <IframeComponent 
+        embedUrl="https://itch.io/embed-upload/14414939?color=333333"
+        fallbackUrl="https://ghosthi.itch.io/breakout"
+        title="Platformer Game"
+        width="100%"
+        height="700px"
+        id="Breakout-iframe"
+    /> 
+    <ChallengesSection challenges={challenges} />
+
+    <ReflectionsSection 
+        lessons={lessons}
+        futureGoals='If I revisited this project, I would make my own assets to give it a more unique feel. I would also add more levels and powerups to make the game more engaging. Additionally, I would implement a timer to track the speed the player completes levels and displays it on the screen and add a leaderboard to enhance the competitive aspect of the game.'
+    />
+
+    <DevDiary url="https://app.affine.pro/workspace/2f1c57ac-8335-4413-94e5-a5c9f37dd436/hlVaMV6YzI" />
+</BaseLayout>
+
