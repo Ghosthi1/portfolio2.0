@@ -9,12 +9,19 @@ import ReflectionsSection from '../components/projects/reflectionsSection.astro'
 import DevDiary from '../components/projects/devDiary.astro';
 
 // Import project images
-import BreakoutImg from '../assets/Projects/BreakOut/BrickBreaker.png';
-import BreakoutSplashImg from '../assets/Projects/BreakOut/BreakOutSplash.png';
-import NormalImg from '../assets/Projects/BreakOut/normal.png';
-import PersonImg from '../assets/Projects/BreakOut/person.png';
-import StrongImg from '../assets/Projects/BreakOut/strong.png';
-
+import HomeIMg from '../assets/Projects/Platformer/home.png';
+import Level1Img from '../assets/Projects/Platformer/level1.png';
+import level1OverviewImg from '../assets/Projects/Platformer/level 1overveiw.png';
+import Level2Img from '../assets/Projects/Platformer/level 2.png';
+import Level2OverviewImg from '../assets/Projects/Platformer/level2overveiw.png';
+import Level3Img from '../assets/Projects/Platformer/level 3.png';
+import Level4Img from '../assets/Projects/Platformer/level 4.png';
+import level3OverviewImg from '../assets/Projects/Platformer/level 3 overveiw.png';
+import PlatformerDemo1 from '../assets/Projects/Platformer/level1demo_noaudio.mp4';
+import PlatformerDemo2 from '../assets/Projects/Platformer/level2demo_noaudio.mp4';
+import PlatformerDemo3 from '../assets/Projects/Platformer/level3demo_noaudio.mp4';
+import PlatformerDemo4 from '../assets/Projects/Platformer/level4demo_noaudio.mp4';
+import tutorialImg from '../assets/Projects/Platformer/tutorial.png';
 
 const pageTitle = "Platformer Game";
 // Define challenges data
@@ -85,8 +92,8 @@ const lessons = [
         title="Platformer Game"
         subtitle="A simple platformer game developed in Unity"
         showImage={true}
-        image={BreakoutImg.src}
-        altText="Breakout gameplay screenshot" 
+        image={HomeIMg.src},
+        altText="platformer gameplay screenshot" 
     />
     <Description 
         description="This is a classic implementation of the Breakout game developed in Unity. The game features traditional brick-breaking mechanics where the player controls a paddle to bounce a ball and destroy bricks. It includes custom character animations, powerup systems, data persistence for leaderboards"
@@ -98,38 +105,84 @@ const lessons = [
     <ProjectDemo 
         id="projects"
         projectTitle='Breakout Game'
-        githubUrl="https://github.com/Ghosthi1/BreakOut"
-        itchUrl="https://ghosthi.itch.io/breakout"
-        media={[
-            {
-                type: 'image',
-                src: BreakoutSplashImg.src,
-                alt: 'Breakout game splash screen',
-                caption: 'Game splash screen with start button'
+        itchUrl="https://ghosthi.itch.io/platformer"
+        media={[{
+            type: 'image',
+            src: HomeIMg.src,
+            alt: 'Platformer home screen',
+            caption: 'Home level of Platformer game'
             },
             {
                 type: 'image',
-                src: BreakoutImg.src,
-                alt: 'Breakout gameplay screenshot',
-                caption: 'Main gameplay showing paddle and bricks'
+                src: tutorialImg.src,
+                alt: 'Tutorial level',
+                caption: 'Tutorial/debug level for Platformer'
             },
             {
                 type: 'image',
-                src: NormalImg.src,
-                alt: 'Normal brick type',
-                caption: 'Main body and hat layer of character'
+                src: Level1Img.src,
+                alt: 'Level 1',
+                caption: 'Level 1 for Platformer'
             },
             {
                 type: 'image',
-                src: PersonImg.src,
-                alt: 'Character/Person in game',
-                caption: 'Game character'
+                src: level1OverviewImg.src,
+                alt: 'Level 1 overview',
+                caption: 'Overview of Level 1 for Platformer'
+            },
+            {
+                type: 'video',
+                src: PlatformerDemo1,
+                alt: 'Level 1 overview',
+                caption: 'demo of Level 1 for Platformer'
             },
             {
                 type: 'image',
-                src: StrongImg.src,
-                alt: 'Strong brick type',
-                caption: 'Is the animation for when ball hits the paddle'
+                src: Level2Img.src,
+                alt: 'Level 2',
+                caption: 'Level 2 for Platformer'
+            },
+            {
+                type: 'image',
+                src: Level2OverviewImg.src,
+                alt: 'Level 2 overview',
+                caption: 'Overview of Level 2 for Platformer'
+            },
+            {
+                type: 'video',
+                src: PlatformerDemo2,
+                alt: 'Level 2 overview',
+                caption: 'demo of Level 2 for Platformer'
+            },
+            {
+                type: 'image',
+                src: Level3Img.src,
+                alt: 'Level 3',
+                caption: 'Level 3 for Platformer'
+            },
+            {
+                type: 'image',
+                src: level3OverviewImg.src,
+                alt: 'Level 3 overview',
+                caption: 'Overview of Level 3 for Platformer'
+            },
+            {
+                type: 'video',
+                src: PlatformerDemo3,
+                alt: 'Level 3 overview',
+                caption: 'demo of Level 3 for Platformer'
+            },
+            {
+                type: 'image',
+                src: Level4Img.src,
+                alt: 'Level 4',
+                caption: 'Level 4 for Platformer'
+            },
+            {
+                type: 'video',
+                src: PlatformerDemo4,
+                alt: 'Level 4 overview',
+                caption: 'demo of Level 4 for Platformer'
             }
         ]}
     />
