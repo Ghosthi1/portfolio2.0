@@ -5,7 +5,7 @@ import { Image } from "astro:assets";
 export interface Props {
     title?: string;
     subtitle?: string;
-    image?: string;
+    image?: ImageMetadata; // <-- change from string to ImageMetadata
     altText?: string;
     showImage?: boolean;
 }
@@ -13,14 +13,14 @@ export interface Props {
 const { 
     title = "Welcome to My Portfolio",
     subtitle = "I am a computer science with cybersecurity student with a passion for game development",
-    image = Me.src,
+    image = Me,
     altText = "Hero",
     showImage = true,
 } = Astro.props;
 ---
 <div class ="hero">
     <div class ="hero-content">
-        {showImage && <Image src={Me} alt={altText} class="hero-image" loading="eager" />}
+        {showImage && <Image src={image} alt={altText} class="hero-image" loading="eager" />}
         <h1 class="hero-title">{title}</h1>
     </div>
     <p class="text">{subtitle}</p>
