@@ -1,6 +1,5 @@
 ---
 import Project from './project.astro';
-import { Image } from "astro:assets";
 
 // Import all project images
 import flappyImg from '../../assets/Projects/flappybird/flappy.jpg';
@@ -12,9 +11,16 @@ import calculatorImg from '../../assets/Projects/czlculator/icon (1).png';
 import blenderStarter from '../../assets/Projects/Blender/blender_logo_kit/square/blender_icon_256x256.png';
 import platformerImg from '../../assets/Projects/Platformer/home.png';
 
+import NassImg from '../../assets/Projects/Nass/flappy.jpg';
+
 // All projects
 const projects = [
-    
+    {
+        Project: "Nass",
+        link: "/Nass",
+        imgs: NassImg,
+        tag: "app"
+    },
     {
         Project: "Platformer",
         link: "/Platformer",

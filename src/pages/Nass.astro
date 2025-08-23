@@ -9,19 +9,7 @@ import ReflectionsSection from '../components/projects/reflectionsSection.astro'
 import DevDiary from '../components/projects/devDiary.astro';
 
 // Import project images
-import HomeIMg from '../assets/Projects/Platformer/home.png';
-import Level1Img from '../assets/Projects/Platformer/level1.png';
-import level1OverviewImg from '../assets/Projects/Platformer/level 1overveiw.png';
-import Level2Img from '../assets/Projects/Platformer/level 2.png';
-import Level2OverviewImg from '../assets/Projects/Platformer/level2overveiw.png';
-import Level3Img from '../assets/Projects/Platformer/level 3.png';
-import Level4Img from '../assets/Projects/Platformer/level 4.png';
-import level3OverviewImg from '../assets/Projects/Platformer/level 3 overveiw.png';
-import PlatformerDemo1 from '../assets/Projects/Platformer/level1demo_noaudio.mp4';
-import PlatformerDemo2 from '../assets/Projects/Platformer/level2demo_noaudio.mp4';
-import PlatformerDemo3 from '../assets/Projects/Platformer/level3demo_noaudio.mp4';
-import PlatformerDemo4 from '../assets/Projects/Platformer/level4demo_noaudio.mp4';
-import tutorialImg from '../assets/Projects/Platformer/tutorial.png';
+
 
 const pageTitle = "Platformer Game";
 // Define challenges data
@@ -111,88 +99,16 @@ const lessons = [
             src: HomeIMg.src,
             alt: 'Platformer home screen',
             caption: 'Home level of Platformer game'
-            },
-            {
-                type: 'image',
-                src: tutorialImg.src,
-                alt: 'Tutorial level',
-                caption: 'Tutorial/debug level for Platformer'
-            },
-            {
-                type: 'image',
-                src: Level1Img.src,
-                alt: 'Level 1',
-                caption: 'Level 1 for Platformer'
-            },
-            {
-                type: 'image',
-                src: level1OverviewImg.src,
-                alt: 'Level 1 overview',
-                caption: 'Overview of Level 1 for Platformer'
-            },
-            {
-                type: 'video',
-                src: PlatformerDemo1,
-                alt: 'Level 1 overview',
-                caption: 'demo of Level 1 for Platformer'
-            },
-            {
-                type: 'image',
-                src: Level2Img.src,
-                alt: 'Level 2',
-                caption: 'Level 2 for Platformer'
-            },
-            {
-                type: 'image',
-                src: Level2OverviewImg.src,
-                alt: 'Level 2 overview',
-                caption: 'Overview of Level 2 for Platformer'
-            },
-            {
-                type: 'video',
-                src: PlatformerDemo2,
-                alt: 'Level 2 overview',
-                caption: 'demo of Level 2 for Platformer'
-            },
-            {
-                type: 'image',
-                src: Level3Img.src,
-                alt: 'Level 3',
-                caption: 'Level 3 for Platformer'
-            },
-            {
-                type: 'image',
-                src: level3OverviewImg.src,
-                alt: 'Level 3 overview',
-                caption: 'Overview of Level 3 for Platformer'
-            },
-            {
-                type: 'video',
-                src: PlatformerDemo3,
-                alt: 'Level 3 overview',
-                caption: 'demo of Level 3 for Platformer'
-            },
-            {
-                type: 'image',
-                src: Level4Img.src,
-                alt: 'Level 4',
-                caption: 'Level 4 for Platformer'
-            },
-            {
-                type: 'video',
-                src: PlatformerDemo4,
-                alt: 'Level 4 overview',
-                caption: 'demo of Level 4 for Platformer'
             }
         ]}
     />
     <IframeComponent 
         embedUrl="https://itch.io/embed-upload/14414939?color=333333"
-        fallbackUrl="https://ghosthi.itch.io/platformer"
+        fallbackUrl="https://ghosthi.itch.io/breakout"
         title="Platformer Game"
         width="100%"
         height="700px"
-        id="Platformer-iframe"
+        id="Breakout-iframe"
     /> 
     <ChallengesSection challenges={challenges} />
 
@@ -201,6 +117,5 @@ const lessons = [
         futureGoals='If I revisited this project, I would make my own assets to give it a more unique feel. I would also add more levels and powerups to make the game more engaging. Additionally, I would implement a timer to track the speed the player completes levels and displays it on the screen and add a leaderboard to enhance the competitive aspect of the game.'
     />
 
-    <DevDiary url="https://app.affine.pro/workspace/2f1c57ac-8335-4413-94e5-a5c9f37dd436/hlVaMV6YzI" />
 </BaseLayout>
 
