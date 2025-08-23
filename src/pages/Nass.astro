@@ -3,36 +3,33 @@ import BaseLayout from '../layouts/baseLayout.astro';
 import Hero from '../components/Hero/Hero.astro';
 import Description from '../components/Hero/Description.astro';
 import ProjectDemo from '../components/projects/projectDemo.astro';
-import IframeComponent from '../components/projects/iframme.astro';
 import ChallengesSection from '../components/projects/challengesSection.astro';
 import ReflectionsSection from '../components/projects/reflectionsSection.astro';
-import DevDiary from '../components/projects/devDiary.astro';
 
 // Import project images
+import raspPiImg from '../assets/Projects/Nass/raspberrypi.jpg';
+import HomeIMg from '../assets/Projects/Nass/home.jpg';
+import storageImg from '../assets/Projects/Nass/storage.jpg';
+import proofOfWorkImg from '../assets/Projects/Nass/proofOfWork.jpg';
 
 
-const pageTitle = "Platformer Game";
+const pageTitle = "Nass";
 // Define challenges data
 const challenges = [
     {
         icon: "🧠",
-        title:  "A* pathfinding performance",
-        description: "The A* pathfinding algorithm was causing performance issues when there were too many enemies on screen. I had to optimize the algorithm by switching to a heap rather than individual lists for open and closed nodes, which significantly improved performance. This increased my performance reducing stuttering."
+        title:  "Wired internet connection",
+        description: "Setting up the OMV OS required a wired connection but my wifi router is not accessable, so I ran the ethernet to my PC and enabled pass through to provide network access to the Raspberry Pi."
     },
     {
-        icon: " 🐻",
-        title: "Getting Bear to change heights",
-        description: "Could not get the bear to naturally change height without floating using A* apathfinding. So i switched over to node based patrolling to get a smoother motion. This allowed the bear to move between nodes and change height naturally without as much floating."
+        icon:"⚙️",
+        title: "Failing drive",
+        description: "My Recycled drive was to old and S.M.A.R.T was giving errors, This was preventing me from using it in the NAS. I had to get a new drive to continue the project."
     },
     {
-        icon: " 🗺️",
-        title: "Level design",
-        description: "I struggled with creating engaging and unique levels that focus on diffrent aspects of the game. I had to iterate on the level design multiple times to ensure that each level was fun and challenging. I also had to balance the difficulty of the levels to ensure that they were not too easy or too hard."
-    },
-    {
-        icon: "🎁",
-        title: "Pickups are Collecting when not in range",
-        description: "I never found out why this hapens, after checking collision boxes and changing detection type my fix for this was changing the pickups to a keinematic object"
+        icon: "🛠️",
+        title: "Network segmentation",
+        description: "I had planned to use a form of network segmentation either VLANs or a separate subnet to isolate the NAS from the rest of my network, but my router did not support these features so unfortunately I had to give up on this feature."
     }
 ];
 
@@ -40,44 +37,23 @@ const challenges = [
 const lessons = [
     {
         icon: "🧩",
-        title: "Breaking down scripts into smaller components",
-        description: "As I progressed through the project, I found my player movement script handled more than it should have like audio and collisions, I should have separated these into smaller scripts to reduce complexity."
+        title: "Vpn usage",
+        description: "I used a VPN to allow secure access to the NAS when away from home. I did this by setting up a Wireguard VPN server on the NAS and configuring my devices to connect to it when away from home."
     },
     {
-        icon: "⬇️",
-        title: "Directional collision direction",
-        description: "I used collision points and height to determine the direction of the collision, I found I over-engineered this as I could have just checked the player's height in relation to the enemy and if it had a downward movement."
-    },
+        icon: "🔧",
+        title: "Restriction to users",
+        description: "I used OMV to restrict access to anything other than shared folders. This was done to prevent other users from accessing the NAS and making changes to the system."
+    }, 
     {
-        icon: "🤖",
-        title: "State machine for enemy AI",
-        description: "I used a state machine to manage the enemy AI, allowing swaping of behaviours on the fly. This made it easier to add new enemy types and behaviours without having to rewrite the entire AI system."
-    },
-    {
-        icon: "🧭",
-        title: "A* Pathfinding",
-        description: "I implemented this to allow a more dynamic enemy movement system, allowing enemies to navigate around obstacles and chase the player. This made the game more challenging and engaging rather than just having enemies move in a straight line."
-    },
-    {
-        icon: "🧪",
-        title: "Debug Level",
-        description: "I created a debug/intro level where i would introduicce the player to the game mechanics and controls. This allowed me to test the game mechanics and ensure that they were working as intended in a controlled enviroment before adding them to the main game."
-    },
-    {
-        icon: "🗺️",
-        title: "2D tilesmap to create the levels",
-        description: "I used a 2D tilesmap to create the levels, allowing for more efficient level design and easier iteration on level layouts."
-    },
-    {
-        icon: "🕹️",
-        title: "Importance of playtesting",
-        description: "I had friends and family playtest, during which I took notes of struggles and glitches they encountered. This helped me identify areas of the game that needed improvement that I may have missed. From small things like signs that dont do anything to big oversights like lack of audio."
+        icon: "",
+        title: "Learning experience",
+        description: "This project was a great learning experience for me. I learned a lot about setting up and configuring a NAS, as well as about network security and management. From limiting user access to setting up a VPN, I gained valuable unserstanding that I can use in future projects."
     }
-];
 ---
 <BaseLayout pageTitle={pageTitle} backgroundVariant="game">
     <Hero 
-        title="Platformer Game"
+        title="Nass"
         subtitle="A simple platformer game developed in Unity"
         showImage={true}
         image={HomeIMg},
@@ -102,14 +78,7 @@ const lessons = [
             }
         ]}
     />
-    <IframeComponent 
-        embedUrl="https://itch.io/embed-upload/14414939?color=333333"
-        fallbackUrl="https://ghosthi.itch.io/breakout"
-        title="Platformer Game"
-        width="100%"
-        height="700px"
-        id="Breakout-iframe"
-    /> 
+
     <ChallengesSection challenges={challenges} />
 
     <ReflectionsSection 
