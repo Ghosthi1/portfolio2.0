@@ -128,14 +128,16 @@ const lessons = [
             }
         ]}
     />
-    <IframeComponent 
-        embedUrl="https://itch.io/embed-upload/14759797?color=333333"
-        fallbackUrl="https://ghosthi.itch.io/tabletoptracker2.0"
-        title="TableTop Tracker 2.0"
-        width="100%"
-        height="700px"
-        id="TableTopTracker-iframe"
-    /> 
+    <div class="mobile-iframe-enabled">
+        <IframeComponent 
+            embedUrl="https://itch.io/embed-upload/14759797?color=333333"
+            fallbackUrl="https://ghosthi.itch.io/tabletoptracker2.0"
+            title="TableTop Tracker 2.0"
+            width="100%"
+            height="700px"
+            id="TableTopTracker-iframe"
+        /> 
+    </div>
     <ChallengesSection challenges={challenges} />
 
     <ReflectionsSection 
@@ -147,17 +149,40 @@ const lessons = [
 </BaseLayout>
 
 <style>
-/* For a specific page only */
-.mobile-iframe-enabled iframe {
+/* Force iframe to appear in mobile mode by overriding the global CSS */
+.mobile-iframe-enabled .iframe-container {
     display: block !important;
-    width: 100% !important;
-    height: auto !important;
-    min-height: 400px !important;
 }
 
 @media (max-width: 768px) {
-    .mobile-iframe-enabled iframe {
+    .mobile-iframe-enabled .iframe-container {
         display: block !important;
+        max-width: 95% !important;
+        margin: 2rem auto !important;
+        padding: 1.5rem !important;
+    }
+    
+    .mobile-iframe-enabled .iframe-wrapper {
+        height: 400px !important;
+    }
+    
+    .mobile-iframe-enabled iframe {
+        width: 100% !important;
+        height: 100% !important;
+        border-radius: 8px !important;
+    }
+}
+
+@media (max-width: 480px) {
+    .mobile-iframe-enabled .iframe-container {
+        display: block !important;
+        max-width: 98% !important;
+        margin: 1.5rem auto !important;
+        padding: 1rem !important;
+    }
+    
+    .mobile-iframe-enabled .iframe-wrapper {
+        height: 350px !important;
     }
 }
 </style>
