@@ -7,13 +7,12 @@ import ChallengesSection from '../components/projects/challengesSection.astro';
 import ReflectionsSection from '../components/projects/reflectionsSection.astro';
 
 // Import project images
-import raspPiImg from '../assets/Projects/Nass/raspberrypi.jpg';
-import HomeIMg from '../assets/Projects/Nass/home.jpg';
-import storageImg from '../assets/Projects/Nass/storage.jpg';
-import proofOfWorkImg from '../assets/Projects/Nass/proofOfWork.jpg';
+import HomeImg from '../assets/Projects/Nass/PhysicalNass.jpg';
+import Omv from '../assets/Projects/Nass/omv.png';
+import Terminal from '../assets/Projects/Nass/Terminal.png';
 
 
-const pageTitle = "Nass";
+const pageTitle = "Nas";
 // Define challenges data
 const challenges = [
     {
@@ -46,35 +45,59 @@ const lessons = [
         description: "I used OMV to restrict access to anything other than shared folders. This was done to prevent other users from accessing the NAS and making changes to the system."
     }, 
     {
-        icon: "",
+        icon: "🎓",
         title: "Learning experience",
         description: "This project was a great learning experience for me. I learned a lot about setting up and configuring a NAS, as well as about network security and management. From limiting user access to setting up a VPN, I gained valuable unserstanding that I can use in future projects."
     }
+];
 ---
-<BaseLayout pageTitle={pageTitle} backgroundVariant="game">
+<BaseLayout pageTitle={pageTitle} backgroundVariant="creative">
     <Hero 
-        title="Nass"
-        subtitle="A simple platformer game developed in Unity"
+        title="Nas (Network-Attached Storage)"
+        subtitle="A home project creating a personal NAS using a Raspberry Pi."
         showImage={true}
-        image={HomeIMg},
-        altText="platformer gameplay screenshot" 
+        image={HomeImg},
+        altText="Raspberry Pi with hard drive" 
     />
     <Description 
-        description="A platformer game developed in Unity, showcasing skills in C# scripting, 2D tilemap level design, and camera control. The game features a player character that can jump, run, and collect items while avoiding enemies powered by state machine AI and A* pathfinding. Multiple levels were created using Unity's tilemap system, with event systems and multiple input sources for smooth gameplay. Extensive playtesting, optimization, and problem solving ensured a polished experience."
+        description="A home project creating a personal NAS using a Raspberry Pi, OMV, and a recycled hard drive. The NAS provides centralized storage and file sharing for my home network, with external access via VPN for secure remote connectivity."
         showSkills={true}
         skillsTitle="Technologies Used"
-        skills={["Unity", "C#", "Level design", "2D Tilemap", "A* Pathfinding", "User testing", "Problem solving","Optimization","Camera control","State machine","Event system","Multiple input sources"]}
+        skills={[
+            "Linux System Administration",
+            "OpenMediaVault (OMV)",
+            "Raspberry Pi Configuration",
+            "Network Configuration",
+            "VPN Setup (WireGuard)",
+            "File System Management", 
+            "Network Security",
+            "SSH & Remote Access",
+            "Hardware Setup",
+            "Troubleshooting",
+            "User Access Control",
+        ]}
         id="about"
     />
     <ProjectDemo 
         id="projects"
-        projectTitle='Breakout Game'
-        itchUrl="https://ghosthi.itch.io/platformer"
+        projectTitle='Nas (Network-Attached Storage)'
         media={[{
             type: 'image',
-            src: HomeIMg.src,
-            alt: 'Platformer home screen',
-            caption: 'Home level of Platformer game'
+            src: HomeImg.src,
+            alt: 'Nas',
+            caption: 'Home level of Nas project'
+            },
+            {
+            type: 'image',
+            src: Terminal.src,
+            alt: 'Nas Vpn',
+            caption: 'Vpn setup using terminal'
+            },
+            {
+            type: 'image',
+            src: Omv.src,
+            alt: 'Home of omv',
+            caption: 'Home screen of omv'
             }
         ]}
     />
@@ -83,7 +106,7 @@ const lessons = [
 
     <ReflectionsSection 
         lessons={lessons}
-        futureGoals='If I revisited this project, I would make my own assets to give it a more unique feel. I would also add more levels and powerups to make the game more engaging. Additionally, I would implement a timer to track the speed the player completes levels and displays it on the screen and add a leaderboard to enhance the competitive aspect of the game.'
+        futureGoals='In the future, I would like to implement network segmentation using VLANs or a separate subnet to isolate the NAS from the rest of my network. Additionally, I plan to explore more advanced backup solutions and possibly integrate cloud storage options for added redundancy and accessibility.'
     />
 
 </BaseLayout>
