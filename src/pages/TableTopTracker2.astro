@@ -9,10 +9,8 @@ import ReflectionsSection from '../components/projects/reflectionsSection.astro'
 import DevDiary from '../components/projects/devDiary.astro';
 
 // Import project images
-import HomeImg from '../assets/Projects/TableTopTracker2/TableTopTracker.jpg';
 import LogoImg from '../assets/Projects/TableTopTracker2/Logo.jpg';
 import OHomeImg from '../assets/Projects/TableTopTracker2/OHome.png';
-import ONAmeImg from '../assets/Projects/TableTopTracker2/ONAme.png';
 import BackGroundVideo from '../assets/Projects/TableTopTracker2/BackGround.webm';
 import LightDarkVideo from '../assets/Projects/TableTopTracker2/LightDark.webm';
 import LocalDemoVideo from '../assets/Projects/TableTopTracker2/LocalDemo.webm';
@@ -23,52 +21,117 @@ const pageTitle = "TableTop Tracker 2.0";
 // Define challenges data
 const challenges = [
     {
-        icon: "🧠",
-        title:  "A* pathfinding performance",
-        description: "The A* pathfinding algorithm was causing performance issues when there were too many enemies on screen. I had to optimize the algorithm by switching to a heap rather than individual lists for open and closed nodes, which significantly improved performance. This increased my performance reducing stuttering."
+        icon: "📚",
+        title:  "Understanding dart and the flutter framework",
+        description: "I found it difficult to adjust to the dart language, I found it very abstract making you have to learn the names of components and widgets to be able to use them effectively. I overcame this by following the official flutter documentation and tutorials to get a better understanding of the framework and how to use it effectively."
+    },
+    {
+        icon:"🔄",
+        title: "Backend management",
+        description: "I found it difficult to manage the relationship between the frontend and the backend, I eventually added a interface to manage this easier when I implemented local mode that meant I could call functions to update the data base rather than accessing directly."
+    },
+    {
+        icon:"🔧",
+        title: "Setting up local mode",
+        description: "To allow easy swap between local and online modes I had to create a interface to manage what to do with the data from the app. This meant I had to Refactor a lot of my code to allow this to work effectively."
     }
 ];
 
 // Define lessons/reflections data  
 const lessons = [
     {
-        icon: "🧩",
-        title: "Breaking down scripts into smaller components",
-        description: "As I progressed through the project, I found my player movement script handled more than it should have like audio and collisions, I should have separated these into smaller scripts to reduce complexity."
+        icon: "👥",
+        title: "Usefulness of user feedback",
+        description: "I learned that user feedback is invaluable in the development process. It helps identify pain points and areas for improvement that I may not have considered."
+    },
+    {
+        icon: "🏗️",
+        title: "Importance of planning program structure",
+        description: "It would have been easier to plan to have a interface to manage the relationship between the frontend and backend from the start rather than having to refactor my code later on."
+    },
+    {
+        icon: "🎯",
+        title: "Learning new frameworks",
+        description: "I learned that picking up new frameworks can be challenging. Embracing the learning curve and seeking help from the documentation can make the process smoother."
+    },
+    {
+        icon: "📱",
+        title: "Planning for different devices",
+        description: "I learned the importance of planning for different devices and screen sizes from the start. This helps ensure a consistent user experience across all platforms."
     }
 ];
 ---
-<BaseLayout pageTitle={pageTitle} backgroundVariant="game">
+<BaseLayout pageTitle={pageTitle} backgroundVariant="app">
     <Hero 
-        title="TableTop Tracker"
-        subtitle="A Unity project showcasing tabletop RPG tools"
+        title="TableTop Tracker 2.0"
+        subtitle="A Revised version of my original TableTop Tracker app."
         showImage={true}
-        image={HomeImg},
+        image={LogoImg},
         altText="TableTop Tracker screenshot" 
     />
     <Description 
-        description="TableTop Tracker is a Unity project designed to assist tabletop RPG players and GMs. It offers features like dynamic lighting, token management, and customizable maps. The project emphasizes optimization and user-friendly design, making it a valuable tool for enhancing tabletop gaming sessions."
+        description="TableTopTracker 2.0 is a revised version of my original TableTopTracker app that I made in unity. This version is made using Flutter and Firebase so I could Develop for multiple platforms and learn a new framework and how to use databases in my apps. The app allows users to track the scores and sync to there opponents in real time. It also has a local mode that allows users to play on one device without internet. "
         showSkills={true}
         skillsTitle="Technologies Used"
-        skills={["Unity", "C#", "2D Lighting", "Tilemap", "User Interface", "Optimization", "Problem Solving", "Asset Management"]}
+        skills={[
+            "Flutter",
+            "Dart",
+            "Firebase",
+            "Google Play Store",
+            "Cross-Platform Development",
+            "Real-time Database",
+            "Responsive Design",
+            "UI/UX Design",
+        ]}
         id="about"
     />
     <ProjectDemo 
         id="projects"
-        projectTitle='TableTop Tracker'
-        itchUrl="https://ghosthi.itch.io/tabletoptracker"
-        media={[{
-            type: 'image',
-            src: HomeImg.src,
-            alt: 'TableTop Tracker home screen',
-            caption: 'Home level of TableTop Tracker'
+        projectTitle='TableTop Tracker 2.0'
+        itchUrl="https://ghosthi.itch.io/tabletoptracker2.0"
+        media={[
+            {
+                type: 'image',
+                src: OHomeImg.src,
+                alt: 'TableTop Tracker 2.0 home screen',
+                caption: 'Home page of the app for typing in the session id'
+            },
+            {
+                type: 'video',
+                src: LocalDemoVideo,
+                alt: 'Local mode demonstration',
+                caption: 'Local offline gameplay demo'
+            },
+            {
+                type: 'video',
+                src: ODemoVideo,
+                alt: 'Online mode demonstration',
+                caption: 'Online multiplayer demo'
+            },
+            {
+                type: 'video',
+                src: BackGroundVideo,
+                alt: 'Background demo',
+                caption: 'Demo for adding background images'
+            },
+            {
+                type: 'video',
+                src: LightDarkVideo,
+                alt: 'Light/Dark theme toggle',
+                caption: 'Light and Dark theme toggle'
+            },
+            {
+                type: 'video',
+                src: ThemeChangeVideo,
+                alt: 'Theme change demonstration',
+                caption: 'Dynamic theme customization'
             }
         ]}
     />
     <IframeComponent 
-        embedUrl="https://itch.io/embed-upload/14414939?color=333333"
-        fallbackUrl="https://ghosthi.itch.io/tabletoptracker"
-        title="TableTop Tracker"
+        embedUrl="https://itch.io/embed-upload/14759797?color=333333"
+        fallbackUrl="https://ghosthi.itch.io/tabletoptracker2.0"
+        title="TableTop Tracker 2.0"
         width="100%"
         height="700px"
         id="TableTopTracker-iframe"
@@ -77,9 +140,25 @@ const lessons = [
 
     <ReflectionsSection 
         lessons={lessons}
-        futureGoals='If I revisited this project, I would make my own assets to give it a more unique feel. I would also add more levels and powerups to make the game more engaging. Additionally, I would implement a timer to track the speed the player completes levels and displays it on the screen and add a leaderboard to enhance the competitive aspect of the game.'
+        futureGoals='If I go back to the project, I would like to progress to my further requirements to make it a more complete app. This could include adding the ability to change game missions and add more tabletop features into the app.'
     />
 
-    <DevDiary url="https://app.affine.pro/workspace/2f1c57ac-8335-4413-94e5-a5c9f37dd436/hlVaMV6YzI" />
+    <DevDiary url="https://app.affine.pro/workspace/095c7059-ebde-46a5-b585-1bb5a1b55039/pipRMVBJPjbPRGK1-Yb0N" />
 </BaseLayout>
+
+<style>
+/* For a specific page only */
+.mobile-iframe-enabled iframe {
+    display: block !important;
+    width: 100% !important;
+    height: auto !important;
+    min-height: 400px !important;
+}
+
+@media (max-width: 768px) {
+    .mobile-iframe-enabled iframe {
+        display: block !important;
+    }
+}
+</style>
 
