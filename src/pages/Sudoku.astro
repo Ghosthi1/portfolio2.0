@@ -1,0 +1,78 @@
+---
+import BaseLayout from '../layouts/baseLayout.astro';
+import Hero from '../components/Hero/Hero.astro';
+import Description from '../components/Hero/Description.astro';
+import ProjectDemo from '../components/projects/projectDemo.astro';
+import ChallengesSection from '../components/projects/challengesSection.astro';
+import ReflectionsSection from '../components/projects/reflectionsSection.astro';
+
+// Import project images
+import sudokuIcon from '../assets/Projects/Sudoku/SudukuLogo.png';
+import sudokuVideo from '../assets/Projects/Sudoku/demo.mp4';
+import sudokuLogo from '../assets/Projects/Sudoku/SudukuLogo.png';
+
+const pageTitle = "Sudoku Project";
+// Define challenges data
+const challenges = [
+    {
+        icon: "🧩",
+        title:  "Difficulties debugging the recursive parsing",
+        description: "I had a hard time figuring out why my recursive parsing function wasn't working in the correct order using BODMAS. I had to go through and add increadible detailed comments to the code to figure out what was going wrong. I also had to use console.log statements to debug the code and figure out what was going wrong."
+    }
+];
+
+// Define lessons/reflections data  
+const lessons = [
+    {
+        icon: "🔍",
+        title: "More research on parsing",
+        description: "I should have spent more time researching parsing techniques and best practices. This would have helped me implement a more robust and flexible parsing system."
+    },
+    {
+        icon: "✨", 
+        title: "Could have added more features",
+        description: "I could have implemented additional features such as scientific calculations, history tracking, and customizable themes to enhance the user experience."
+    }
+];
+---
+<BaseLayout pageTitle={pageTitle} backgroundVariant="app">
+    <Hero 
+        title="Sudoku Project"
+        subtitle="A Simpilised Sudoku Game built in rust"
+        showImage={true}
+        image={sudokuLogo}
+        altText="Sudoku app icon"
+    />
+    <Description 
+        description="This is a fully functional calculator application built using C# and the .NET framework. The calculator features a clean, modern interface with support for basic arithmetic operations, decimal calculations, and robust event handling for user interactions."
+        showSkills={true}
+        skillsTitle="Technologies Used"
+        skills={["C#", ".net framework", "Parsing", "UI Design", "Event Handling", "Responsive Design"]}
+        id="about"
+    />
+    <ProjectDemo 
+        id="projects"
+        projectTitle='Calculator App'
+        githubUrl="https://github.com/Ghosthi1/Calculator"
+        media={[
+            {
+                type: 'video',
+                src: sudokuVideo,
+                alt: 'Sudoku demo video',
+                caption: 'Sudoku functionality demonstration'
+            },
+            {
+                type: 'image',
+                src: sudokuIcon.src,
+                alt: 'Sudoku app icon',
+                caption: 'Modern Sudoku interface'
+            }
+        ]}
+    />
+    <ChallengesSection challenges={challenges} />
+
+    <ReflectionsSection 
+        lessons={lessons}
+        futureGoals='In the future, I would like to implement more advanced features such as scientific calculations, history tracking, and customizable themes to enhance the user experience. I would also like to explore different parsing techniques and best practices to improve the robustness and flexibility of the parsing system.'
+    />
+</BaseLayout>
