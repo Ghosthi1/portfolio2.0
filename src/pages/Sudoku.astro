@@ -7,8 +7,8 @@ import ChallengesSection from '../components/projects/challengesSection.astro';
 import ReflectionsSection from '../components/projects/reflectionsSection.astro';
 
 // Import project images
-import sudokuIcon from '../assets/Projects/Sudoku/SudukuLogo.png';
-import sudokuVideo from '../assets/Projects/Sudoku/demo.mp4';
+import sudokuIcon from '../assets/Projects/Sudoku/Sudoku.jpg';
+import sudokuVideo from '../assets/Projects/Sudoku/Sudoko.mp4';
 import sudokuLogo from '../assets/Projects/Sudoku/SudukuLogo.png';
 
 const pageTitle = "Sudoku Project";
@@ -16,22 +16,32 @@ const pageTitle = "Sudoku Project";
 const challenges = [
     {
         icon: "🧩",
-        title:  "Difficulties debugging the recursive parsing",
-        description: "I had a hard time figuring out why my recursive parsing function wasn't working in the correct order using BODMAS. I had to go through and add increadible detailed comments to the code to figure out what was going wrong. I also had to use console.log statements to debug the code and figure out what was going wrong."
+        title: "Game Size Assumptions",
+        description: "Initially built under the assumption that all game sizes are valid, but discovered only perfect squares work for Sudoku. This required a change in logic and validation."
+    },
+    {
+        icon: "🔢",
+        title: "Input Method Challenges",
+        description: "Started with free-form user input, but switched to a dropdown menu to reduce user frustration and prevent parse errors. Limited choices to 25 as larger boards seemed impractical."
+    },
+    {
+        icon: "⏳",
+        title: "Fixed Boards Due to Time Constraints",
+        description: "Due to time constraints, had to use fixed game boards instead of implementing random board generation with a backtracking algorithm."
     }
 ];
 
 // Define lessons/reflections data  
 const lessons = [
     {
-        icon: "🔍",
-        title: "More research on parsing",
-        description: "I should have spent more time researching parsing techniques and best practices. This would have helped me implement a more robust and flexible parsing system."
+        icon: "🎨",
+        title: "User Experience Matters",
+        description: "Switching from free-form input to dropdown menus made the game more user-friendly and reduced errors, highlighting the importance of good UX decisions."
     },
     {
-        icon: "✨", 
-        title: "Could have added more features",
-        description: "I could have implemented additional features such as scientific calculations, history tracking, and customizable themes to enhance the user experience."
+        icon: "⏰",
+        title: "Project Scoping",
+        description: "Time constraints required me to prioritize features and use fixed boards, teaching me valuable lessons about project management and realistic goal setting."
     }
 ];
 ---
@@ -44,16 +54,16 @@ const lessons = [
         altText="Sudoku app icon"
     />
     <Description 
-        description="This is a fully functional calculator application built using C# and the .NET framework. The calculator features a clean, modern interface with support for basic arithmetic operations, decimal calculations, and robust event handling for user interactions."
+        description="This Sudoku project features fixed boards for simplicity and is built using Rust."
         showSkills={true}
         skillsTitle="Technologies Used"
-        skills={["C#", ".net framework", "Parsing", "UI Design", "Event Handling", "Responsive Design"]}
+        skills={["Rust", "Dependency Management", "Error Handling", "eframe GUI Library", "Low-level programming", "Memory Management"]}
         id="about"
     />
     <ProjectDemo 
         id="projects"
-        projectTitle='Calculator App'
-        githubUrl="https://github.com/Ghosthi1/Calculator"
+        projectTitle='Sudoku Project'
+        githubUrl="https://github.com/Ghosthi1/Suduko"
         media={[
             {
                 type: 'video',
@@ -65,7 +75,13 @@ const lessons = [
                 type: 'image',
                 src: sudokuIcon.src,
                 alt: 'Sudoku app icon',
-                caption: 'Modern Sudoku interface'
+                caption: 'Sudoku interface'
+            },
+            {
+                type: 'image',
+                src: sudokuLogo.src,
+                alt: 'Sudoku Logo',
+                caption: 'Sudoku interface'
             }
         ]}
     />
@@ -73,6 +89,6 @@ const lessons = [
 
     <ReflectionsSection 
         lessons={lessons}
-        futureGoals='In the future, I would like to implement more advanced features such as scientific calculations, history tracking, and customizable themes to enhance the user experience. I would also like to explore different parsing techniques and best practices to improve the robustness and flexibility of the parsing system.'
+        futureGoals='Future improvements could include implementing a random board generator using a backtracking algorithm, enhancing the user interface for better usability, and adding features like hints or difficulty levels to enrich the gaming experience.'
     />
 </BaseLayout>
