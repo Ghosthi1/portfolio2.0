@@ -1,0 +1,75 @@
+---
+import BaseLayout from '../layouts/baseLayout.astro';
+import Hero from '../components/Hero/Hero.astro';
+import Description from '../components/Hero/Description.astro';
+import ProjectDemo from '../components/projects/projectDemo.astro';
+import ChallengesSection from '../components/projects/challengesSection.astro';
+import ReflectionsSection from '../components/projects/reflectionsSection.astro';
+
+// Import project images
+import TodoVideo from '../assets/Projects/TodoApp/TodoVideo.mp4';
+import Tick from '../assets/Projects/TodoApp/Tick.svg';
+
+const pageTitle = "Todo App";
+// Define challenges data
+const challenges = [
+    {
+        icon: "🧩",
+        title:  "wrapping my head round the way to link flutter and rust",
+        description: "I had a hard time figuring out how to get flutter and rust to communicate with each other. With using the flutter rust bridge it made it easier but I still had to figure out how to structure the project and get the data to flow correctly.",
+    }
+];
+
+// Define lessons/reflections data  
+const lessons = [
+    {
+        icon: "🔍",
+        title: "JSON Data Handling",
+        description: "JSON was a good way to store small amounts of data locally but was not secure for sensitive data and not suitable for large amounts of data.",
+    },
+    {
+        icon: "✨", 
+        title: "Could have developed app further",
+        description: "As this was a exploration project I could have taken the app further adding more features that a more professional todo app would have but I believed I had learnt all the project could provide about managing two languages for front and back end .",
+    },
+    {
+        icon: "🛠️",
+        title: "Combining Flutter and Rust",
+        description: "Being able to separate out the logic and the UI made following the code so much easier, I could see how this could be used in other projects to allow the speed of rust and good looking UI to work together",}
+];
+---
+<BaseLayout pageTitle={pageTitle} backgroundVariant="app">
+    <Hero 
+        title="Todo App"
+        subtitle="A simple Todo app practicing using diffrent languages in the same project."
+        showImage={true}
+        image={Tick}
+        altText="tick icon"
+    />
+    <Description 
+        description="This was a exploration of using a front and back end code in the same project. The front end waas built withFlutter to create a clean design while the back was built with rust to handle the logic and data storage. The app allows users to add, delete, and mark tasks as complete, with data being stored locally on the device as a JSON."
+        showSkills={true}
+        skillsTitle="Technologies Used"
+        skills={["Flutter", "Dart", "Rust", "JSON"]}
+        id="about"
+    />
+    <ProjectDemo 
+        id="projects"
+        projectTitle='Todo App'
+        githubUrl="https://github.com/Ghosthi1/TodoList/tree/main"
+        media={[
+            {
+                type: 'video',
+                src: TodoVideo,
+                alt: 'Calculator demo video',
+                caption: 'Todo functionality demonstration'
+            }
+        ]}
+    />
+    <ChallengesSection challenges={challenges} />
+
+    <ReflectionsSection 
+        lessons={lessons}
+        futureGoals='For future projects I would like to explore more ways to combine different languages and frameworks to create more efficient and effective applications.'
+    />
+</BaseLayout>
