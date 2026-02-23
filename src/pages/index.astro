@@ -1,15 +1,134 @@
 ---
 import BaseLayout from '../layouts/baseLayout.astro';
-import Hero from '../components/Hero/Hero.astro';
 import Description from '../components/Hero/Description.astro';
 import Projects from '../components/projects/projects.astro';
+import ProjectShowcase from '../components/ProjectShowcase.astro';
+import type { FeaturedProjectData } from '../types/FeaturedProject';
+import { Image } from "astro:assets";
+
+import meImage from "../assets/me.jpg";
+import sudokuCover from "../assets/Projects/Sudoku/Sudoku.jpg";
+import platformerVideo from "../assets/Projects/Platformer/Edit.mp4";
+import tttVideo from "../assets/Projects/TickTackToe/edited.mp4";
+import nass from "../assets/Projects/Nass/edited.mp4";
+import linkedinIcon from "../assets/in-logo (1)/in-logo/LI-In-Bug.png";
+import githubIcon from "../assets/github-mark/github-mark.svg";
+import itchIcon from "../assets/app-icon.svg";
+import emailIcon from "../assets/email-9-svgrepo-com.svg";
 
 const pageTitle = "Home Page";
+
+// Page-level hero content overrides
+const showImage = true;
+const image = meImage;
+const altText = "Photo of me";
+const body = "I'm Callum Forsyth, a Software Engineer specializing in the intersection of Game Systems and Cybersecurity. I build high-performance C# applications with a focus on memory safety and secure architecture.";
+
+const basedIn = "Stirling";
+const degree = "BSc Computing Science & Cybersecurity";
+const currentFocus = "Full-Stack C# (Unity + .NET)";
+
+const proficiencies = [
+	{
+		category: "Languages",
+		items: ["C# (Primary)", "Rust", "JSON Serialization"],
+	},
+	{
+		category: "Game Architecture",
+		items: ["Game Loop Design", "State Management", "Object Pooling", "Unity"],
+	},
+	{
+		category: "AI & Systems",
+		items: ["MinMax AI", "Game Tree Traversal", "Custom Parsing"],
+	}
+	// Add later when you have ASP.NET work to point at:
+	// {
+	// 	category: "Security & Network",
+	// 	items: ["JWT Authentication", "Password Hashing", "REST API Architecture"],
+	// },
+];
+
+const featuredProjects: FeaturedProjectData[] = [
+	{
+		title: "Systems-Driven 2D Platformer",
+		hook: "A polished 5-level technical showcase featuring modular State-Machine AI and high-performance A* pathfinding.",
+		tech: "Unity • C# • A* (Binary Heap) • State Patterns",
+		caseStudyHref: "/Platformer",
+		demoHref: "/Platformer#Platformer-iframe",
+		media: {
+			kind: 'video',
+			src: platformerVideo,
+			alt: 'Platformer project preview',
+		} as const,
+	},
+	{
+		title: "Adversarial AI: MinMax & Recursive Search",
+		hook: "An unbeatable Tic-Tac-Toe opponent utilizing the MinMax algorithm with recursive game-tree traversal and heuristic evaluation.",
+		tech: "Unity • C# • Algorithm Design • Recursion",
+		caseStudyHref: "/TicTacToe",
+		demoHref: "/TicTacToe#tictactoe-iframe",
+		media: {
+			kind: 'video',
+			src: tttVideo,
+			alt: 'TTT project preview',
+		} as const,
+	},
+	{
+		title: "Secure Private Cloud Infrastructure",
+		hook: "A Linux-based NAS deployment featuring WireGuard VPN for encrypted remote access and robust Identity and Access Management (IAM).",
+		tech: "Linux • WireGuard VPN • OpenMediaVault • Networking",
+		caseStudyHref: "/NAS-Infrastructure",
+		media: {
+			kind: 'video',
+			src: nass,
+			alt: 'Secure NAS infrastructure deployment and VPN configuration',
+		} as const,
+	},
+];
 ---
 <BaseLayout pageTitle={pageTitle} backgroundVariant="default">
 	{/*edit in the components defaults */}
-	<Hero />
-	<Description />
+	<div class ="home-hero">
+		<div class ="home-hero-content">
+			{showImage && (
+				<Image src={image} alt={altText} class="home-hero-image" loading="eager" />
+			)}
+			<div class="home-hero-copy">
+				<p class="home-hero-text">{body}</p>
+				<ul class="home-hero-status" aria-label="Quick status">
+					<li><span class="home-hero-status-label">Based in:</span> {basedIn}</li>
+					<li><span class="home-hero-status-label">Degree:</span> {degree}</li>
+					<li><span class="home-hero-status-label">Current Focus:</span> {currentFocus}</li>
+				</ul>
+				<div class="home-hero-actions">
+					<a href="/CV.pdf" download class="home-hero-btn primary">Download CV</a>
+					<a href="#featured-projects" class="home-hero-btn">View Projects</a>
+					<div class="home-hero-socials" aria-label="Social links">
+						<a class="home-hero-social" href="https://www.linkedin.com/in/callum-forsyth-26a5011b2" target="_blank" rel="noreferrer" aria-label="LinkedIn">
+							<Image src={linkedinIcon} alt="LinkedIn" class="home-hero-social-icon" loading="lazy" />
+						</a>
+						<a class="home-hero-social" href="https://github.com/Ghosthi1" target="_blank" rel="noreferrer" aria-label="GitHub">
+							<Image src={githubIcon} alt="GitHub" class="home-hero-social-icon" loading="lazy" />
+						</a>
+						<a class="home-hero-social" href="https://ghosthi.itch.io" target="_blank" rel="noreferrer" aria-label="itch.io">
+							<Image src={itchIcon} alt="itch.io" class="home-hero-social-icon" loading="lazy" />
+						</a>
+						<a class="home-hero-social" href="mailto:c-forsyth02@sky.com" aria-label="Email">
+							<Image src={emailIcon} alt="Email" class="home-hero-social-icon" loading="lazy" />
+						</a>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<Description
+		skillsTitle="Technical Proficiencies"
+		proficiencies={proficiencies}
+	/>
+	<section class="projects-container" id="featured-projects">
+		{featuredProjects.map(p => (
+			<ProjectShowcase {...p} />
+		))}
+	</section>
 	<Projects />
 </BaseLayout>
-

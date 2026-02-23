@@ -23,6 +23,37 @@ const { pageTitle, backgroundVariant = 'default' } = Astro.props;
     
     <script>
       import '../scripts/hamburger.js';
+
+      document.addEventListener('DOMContentLoaded', () => {
+        // Function to handle smooth scrolling
+        const smoothScrollTo = (targetId: string) => {
+          const target = document.getElementById(targetId);
+          if (target) {
+            target.scrollIntoView({ behavior: 'smooth' });
+          }
+        };
+
+        // Handle same-page smooth scrolling for links with hashes
+        document.querySelectorAll<HTMLAnchorElement>('a[href*="#"]').forEach(anchor => {
+          anchor.addEventListener('click', (e: MouseEvent) => {
+            const href = anchor.getAttribute('href');
+            if (!href) return;
+
+            const [path, hash] = href.split('#');
+
+            if ((window.location.pathname === path || path === '') && hash) {
+              e.preventDefault();
+              smoothScrollTo(hash);
+            }
+          });
+        });
+
+        if (window.location.hash) {
+          setTimeout(() => {
+            smoothScrollTo(window.location.hash.substring(1));
+          }, 100);
+        }
+      });
     </script>
   </body>
 </html>

@@ -5,24 +5,22 @@ export interface Props {
     skills?: string[];
     skillsTitle?: string;
     id?: string;
+    proficiencies?: { category: string; items: string[] }[];
 }
 
 const { 
-    description = `I am a computer science and cybersecurity student entering my final year, passionate about game development and creative technology. 
-    Through personal projects, I have gained experience with C#,rust, Unity, and web development using Astro—the framework powering this portfolio. 
-    My interest in cybersecurity has led me to hands-on learning through platforms like TryHackMe. 
-    Additionally, I enjoy asset creation, using Blender and GIMP to design and produce custom visuals for my projects.`,
+    description = `I am a Systems-Focused Software Engineer entering my final year of Computer Science & Cybersecurity. I specialize in bridging the gap between high-performance game logic in Unity (C#) and secure, low-level systems in Rust. My background in Cybersecurity allows me to build with a 'security-first' mindset—ensuring that game mechanics and web architectures are as robust as they are creative. Beyond the code, I am a full-cycle creator, utilizing Blender and GIMP to develop custom assets and visuals. I’m currently looking for graduate opportunities where I can apply my passion for optimization, secure design, and technical problem-solving.`,
     showSkills = true,
     skills = [
-        "C#", "Rust", "Parsing", "UI Design","Unity", "Pixel art", "JSON Serialization", "MinMax AI", "Game tree traversal", 
+        "C#", "Rust", "Parsing", "UI Design","Unity", "Pixel art", "JSON Serialization", "MinMax AI", "Game tree traversal",
         "Python","Game Loop Architecture", "State management",
         "3D Modeling", "Rigging", "Rendering", "Fluid Simulation",
          "2D modeling"
     ],
+    proficiencies,
     skillsTitle = "Skills at a glance",
     id = "about"
 } = Astro.props;
-
 ---
 <div class="description" id={id}>
     <div class="text">
@@ -31,11 +29,26 @@ const {
     {showSkills && (
         <>
             <h2>{skillsTitle}</h2>
-            <div class="skills">
-                <ul class="grid">
-                    {skills.map(skill => <li>{skill}</li>)}
-                </ul>
-            </div>
+            {proficiencies?.length ? (
+                <div class="proficiencies" aria-label="Technical proficiencies">
+                    {proficiencies.map((group) => (
+                        <section class="proficiency-group" aria-label={group.category}>
+                            <h3 class="proficiency-title">{group.category}</h3>
+                            <ul class="proficiency-items">
+                                {group.items.map((item) => (
+                                    <li>{item}</li>
+                                ))}
+                            </ul>
+                        </section>
+                    ))}
+                </div>
+            ) : (
+                <div class="skills">
+                    <ul class="grid">
+                        {skills.map(skill => <li>{skill}</li>)}
+                    </ul>
+                </div>
+            )}
         </>
     )}
 </div>

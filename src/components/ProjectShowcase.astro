@@ -1,0 +1,99 @@
+---
+import type { FeaturedProjectData } from '../types/FeaturedProject';
+
+export interface Props extends FeaturedProjectData {}
+
+const {
+	title,
+	hook,
+	tech,
+	flex,
+	caseStudyHref,
+	githubHref,
+	liveHref,
+	demoHref,
+	media,
+	id,
+	bulletPoints,
+} = Astro.props;
+
+const hasButtons = Boolean(caseStudyHref || githubHref || liveHref || demoHref);
+---
+
+<article class="featured-project" id={id}>
+	<h2 class="featured-project-title">{title}</h2>
+	{tech && (
+		<p class="featured-project-tech">
+			<span class="featured-project-label">Tech:</span> {tech}
+		</p>
+	)}
+	{bulletPoints && (
+		<ul class="featured-project-bullets">
+			{bulletPoints.map((point) => (
+				<li>{point}</li>
+			))}
+		</ul>
+	)}
+
+	<div class="featured-project-body">
+		<div class="featured-project-media" aria-label={`${title} preview`}>
+			{media?.kind === 'video' ? (
+				<video
+					src={media.src}
+					poster={media.poster}
+					class="featured-project-video"
+					loop={media.loop ?? true}
+					muted={media.muted ?? true}
+					autoplay
+					playsinline={media.playsInline ?? true}
+					preload="metadata"
+					aria-label={media.alt || `${title} video preview`}
+				></video>
+			) : media?.kind === 'image' ? (
+				<img
+					src={media.src}
+					alt={media.alt}
+					class="featured-project-image"
+					loading="lazy"
+				/>
+			) : (
+				<div class="featured-project-media-placeholder" aria-hidden="true"></div>
+			)}
+		</div>
+
+		<div class="featured-project-breakdown">
+			<p class="featured-project-hook">{hook}</p>
+
+			{flex && (
+				<p class="featured-project-flex">
+					<span class="featured-project-label">Flex:</span> {flex}
+				</p>
+			)}
+
+			{hasButtons && (
+				<div class="featured-project-actions" aria-label="Project links">
+					{caseStudyHref && (
+						<a class="featured-project-btn primary" href={caseStudyHref}>
+							View Full Page
+						</a>
+					)}
+					{githubHref && (
+						<a class="featured-project-btn" href={githubHref} target="_blank" rel="noopener noreferrer">
+							GitHub
+						</a>
+					)}
+					{liveHref && (
+						<a class="featured-project-btn" href={liveHref} target="_blank" rel="noopener noreferrer">
+							Live Demo
+						</a>
+					)}
+					{demoHref && (
+						<a class="featured-project-btn" href={demoHref}>
+							Play Demo
+						</a>
+					)}
+				</div>
+			)}
+		</div>
+	</div>
+</article>
