@@ -15,6 +15,7 @@ import linkedinIcon from "../assets/in-logo (1)/in-logo/LI-In-Bug.png";
 import githubIcon from "../assets/github-mark/github-mark.svg";
 import itchIcon from "../assets/app-icon.svg";
 import emailIcon from "../assets/email-9-svgrepo-com.svg";
+import cvFile from "../CV.pdf";
 
 const pageTitle = "Home Page";
 
@@ -101,7 +102,7 @@ const featuredProjects: FeaturedProjectData[] = [
 					<li><span class="home-hero-status-label">Current Focus:</span> {currentFocus}</li>
 				</ul>
 				<div class="home-hero-actions">
-					<a href="/CV.pdf" download class="home-hero-btn primary">Download CV</a>
+					<a href={cvFile} download="CV.pdf" class="home-hero-btn primary">Download CV</a>
 					<a href="#featured-projects" class="home-hero-btn">View Projects</a>
 					<div class="home-hero-socials" aria-label="Social links">
 						<a class="home-hero-social" href="https://www.linkedin.com/in/callum-forsyth-26a5011b2" target="_blank" rel="noreferrer" aria-label="LinkedIn">
